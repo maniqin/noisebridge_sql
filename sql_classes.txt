@@ -231,12 +231,12 @@ template_id: 8
 
 SELECT from a table
 	All columns
-		SELECT * FROM table_name
+		SELECT * FROM table_name;
 	Specific columns, choose the order you want
 		SELECT  column_name_1,
 				column_name_2,
 				column_name_3
-			FROM table
+			FROM table;
 
 ------------------------------------------------------------------------------------
 template: Title bullet points and code template
@@ -369,7 +369,7 @@ VERTICAL
 	Simple ORDER BY one column
 		- code
 			SELECT * FROM employees
-			ORDER BY last_name ASC
+			ORDER BY last_name ASC;
 
 	ORDER BY two columns
 		- Ordering by two columns means sorting one first,
@@ -382,6 +382,7 @@ VERTICAL
 		 SELECT GenreId, Name -- These happen to be all the columns present in the table "genres"
 			FROM genres
 		 ORDER BY Name ASC -- or DESC, ORDER BY defaults to ASC
+		 ;
 		 
 		 -- This is a shortcut way of doing it:
 		 SELECT GenreId, Name
@@ -389,7 +390,8 @@ VERTICAL
 		 ORDER BY 2 ASC
 		 -- 2 here means the second column
 		--  (in the order written after the SELECT)
-		 
+		 ;
+
 		 -- ORDER BY with multiple columns
 		 
 		 SELECT Composer, Name, Milliseconds
@@ -426,6 +428,7 @@ VERTICAL
 			FROM table_name
 		WHERE my_str_column = 'some_string'
 		-- here we're assuming that the field my_str_column is a string (varchar())
+		;
 
 
 	Simple WHERE condition for numeric column
@@ -433,12 +436,15 @@ VERTICAL
 			FROM table_name
 		WHERE my_num_column = 23
 		-- here we're assuming that my_num_column is an integer or a float
+		;
+
 
 		Simple WHERE condition for numeric column
 		SELECT id, my_num_column
 			FROM table_name
 		WHERE my_num_column = 23
 		-- here we're assuming that my_num_column is an integer or a float
+		;
 
 	SIMPLE WHERE condition with use of NULL values
 		to filter for NULL or NOT NULL values
@@ -447,6 +453,7 @@ VERTICAL
 			WHERE my_col IS NULL
 			-- for the opposite result use:
 			--  WHERE my_col IS NOT NULL 
+			;
 
 
 	Combined WHERE condition with AND operator
@@ -458,6 +465,7 @@ VERTICAL
 			FROM table_name
 			WHERE my_num_column > 2
 			AND my_str_column = 'hello'
+			;
 
 
 	WHERE used with OR
@@ -467,6 +475,7 @@ VERTICAL
 			FROM table_name
 			WHERE my_num_column > 2
 			OR my_str_column = 'hello'
+			;
 
 
 	WHERE used with AND and OR
@@ -477,6 +486,7 @@ VERTICAL
 			WHERE 
 			(my_num_column > 2 AND my_num_column < 6) 
 			OR my_str_column = 'hello'
+			;
 
 	If filtering same numeric column for a range 
 		instead of doing:
@@ -494,6 +504,7 @@ VERTICAL
 				,my_str_column
 			FROM table_name
 			WHERE id IN (1,2,3,4)
+			;
 
 	WHERE clauses use the IN keyword to filter records to a specified subset
 		For example:
@@ -504,7 +515,7 @@ VERTICAL
 						last_name
 					FROM table_name
 				WHERE first_name IN ('Richard', 'Ann', 'Chris')
-
+				;
 			Start to think how you would treat cases in which the value is 'richard' and not 'Richard'
 
 
@@ -517,6 +528,7 @@ Built-in RANDOM() function
         Example:
             SELECT random()
             -- no from because it doesnt really come from a table
+            ;
     very useful to use in comination with ORDER BY
         Example:
             SELECT col_1,
@@ -684,6 +696,7 @@ LIKE operator
 				,col_2
 				FROM table_name
 			WHERE col_1 LIKE 'search%' -- this will match any string that starts with the word 'search' 
+			;
 
 		Tips:
 			always be careful to put the % characters in the right places!
