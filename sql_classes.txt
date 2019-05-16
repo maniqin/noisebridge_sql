@@ -1,0 +1,692 @@
+
+CLASS 1:
+
+Good source: https://www.geeksforgeeks.org/sql-tutorial/
+https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 1 
+------------------------------------------------------------------------------------
+
+CLASS 1 - Intro
+Links to meetup, gh, and wiki
+
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 2 
+------------------------------------------------------------------------------------
+	- Previous class review
+		- code
+		- no class, this is the first one!
+
+
+------------------------------------------------------------------------------------
+template: 2x2 grid with bullet points on left and image on right
+template_id: 7
+------------------------------------------------------------------------------------
+	- What is sql, why is it used
+		- S(trucured) Q(uery) L(anguage)
+		- We can access databases with it
+		- Fast / efficient storage & retrieval
+
+		- One of the most used / popular ways to store data
+		- Key component to backends of many Web Apps
+
+------------------------------------------------------------------------------------
+template: table_template
+template_id: 4
+------------------------------------------------------------------------------------
+
+	- Several variants of sql (proprietary vs open)
+		- PostgreSQL
+		- MySQL
+		- SQLite
+		- SQL Server
+		- Oracle DB
+		- Etc...
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
+
+	- Different types of databases optimized to do different things
+		analytical db vs operational db
+		db on file vs db on server
+
+	-Understanding why it's called RDBS (relational database system)
+		Can decide what are the relationships between tables before filling them with data
+		Very important step, if not the most important, gonna have repercussions in the future
+
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
+
+	TABLES
+		What is a table? 
+			https://en.wikipedia.org/wiki/Table_(database)
+		Why multiple tables and not just one?
+			Storage efficiency
+			Data better organized
+			Encapsulate concepts into tables
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+	TABLES
+		What is a Column or Field? 
+			https://en.wikipedia.org/wiki/Column_(database)
+			A field is a column in a table
+			Vertical entity that stores data
+			We can apply filters on columns
+				just like you would on a spreadsheet
+			Columns store a specific data types
+				more on this later
+
+
+------------------------------------------------------------------------------------
+template: Title only
+template_id: 13
+------------------------------------------------------------------------------------
+
+	SCHEMA
+		What is a table schema and how do I draw / design one?
+			A schema is a collection of (most likely) related tables
+
+------------------------------------------------------------------------------------
+template: img_only
+template_id: 11
+------------------------------------------------------------------------------------
+
+	Sample table schema drawing
+		- http://www.postgresqltutorial.com/wp-content/uploads/2018/03/dvd-rental-sample-database-diagram.png
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+MAIN SQL CONCEPTS (have this as constant on top left)
+
+	TABLE / COLUMNS important concepts (have this as constant on top right)
+
+		Keys:
+		- What's a Primary Key? (aka join key)
+		- What's a Foreign Key? (aka join key)
+			- Why should I care about all this??
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+		- Understnading Constrants (NOT NULL, UNIQUE etc)
+			- When creating a table we can set specific constraints to it
+			- This means columns we specify will follow set rules (i.e. never being empty)
+			- Some examples of constraints: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, etc..
+			- W3 Schools ref: https://www.w3schools.com/sql/sql_constraints.asp
+
+
+------------------------------------------------------------------------------------
+template: double_bulleted_list
+template_id: 7
+------------------------------------------------------------------------------------
+
+		- Data Types
+			- Columns are created with a set data type
+				- This means that a given column will accomodate a specific type of data and refuse other ones
+
+			- Most common data types:
+				- integers
+				- floats
+				- date/datetime/timestamp
+				- varchar
+				- boolean
+				- autoincrement/sequence
+				- Source: https://www.geeksforgeeks.org/sql-datatypes/
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+	STATEMENTS (have this as constant on top right):
+
+		SQL statements (aka SQL code, queries, SQL pulls) are the way we interact with the DB
+			- Creating tables
+			- Inserting data into tables
+			- Deleting data from tables
+			- Query data from tables
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+	STATEMENT TYPES:
+		- DDL, DML, DCL, TCL (definition, manipulation, control, transaction control)
+			- source: https://www.geeksforgeeks.org/sql-ddl-dml-dcl-tcl-commands/ 
+		- We'll start with DML (simple SELECT queries)
+
+
+------------------------------------------------------------------------------------
+template: Title only
+template_id: 13
+------------------------------------------------------------------------------------
+
+Before we can get SQLing...
+we need a DB
+
+
+------------------------------------------------------------------------------------
+template: double_bulleted_list
+template_id: 7
+------------------------------------------------------------------------------------
+
+DOWNLOAD A SAMPLE DB
+	- Let's start with a simple sqlite file - http://www.sqlitetutorial.net/sqlite-sample-database/
+	- Sample postres dump - http://www.postgresqltutorial.com/postgresql-sample-database/ or https://musicbrainz.org/statistics
+		- Need to install postgres for this one, if interested talk to me after class
+
+DOWNLOAD SQL CLIENT GUI
+	- https://sqlitebrowser.org/ (works on all machines)
+
+
+
+
+----
+VERTICAL
+----
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+LET'S WRITE SOME SQL
+
+	[md]SELECT statement[md]
+		- SQL way to retrieve data from one or multiple tables
+		- May be the most common statement you'll see around
+		- 99.9% of the times it will be followed by a FROM (to indicate 'from what table')
+		- Doesn't matter if typed upper or lower case
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+SELECT from a table
+	All columns
+		SELECT * FROM table_name
+	Specific columns, choose the order you want
+		SELECT  column_name_1,
+				column_name_2,
+				column_name_3
+			FROM table
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+What if the table outputs too many rows?
+	Use limit!
+		SELECT column_1,
+				column_2 
+			FROM table_name
+			LIMIT 100;
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+How to describe / put comments in your code
+	Comments in SQL
+		-- This query does so and so
+		SELECT column_1,
+				column_2 
+			FROM table_name -- this is an inline comment
+			/*
+			You will need multi-line comment
+			At some 
+			Believe me
+			*/
+			LIMIT 100;
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+CLASS 2
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 1 
+------------------------------------------------------------------------------------
+
+CLASS 1 - Intro
+Links to meetup, gh, and wiki
+
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 2 
+------------------------------------------------------------------------------------
+	- make sure to have a db installed
+
+	- Previous class review
+		- What is a db, what is SQL, why do we use it
+		- SELECT * FROM table_name
+		- SELECT column_1, colunm_2 FROM table_name
+		- LIMIT
+		- -- Comments!
+
+
+VERTICAL
+
+	Let's talk about NULL Values
+
+	NULL values are special values in a table's records
+	- include pic on the side of null values in various consoles
+	A NULL literally means 'no data in this record in this column'
+	- img of null vals in table
+	Watch out: very different from a blank string or a string  literally spelling 'NULL'
+		- example of nulls (query from data you know is gonna output null with super simple select)
+
+		CODE: 
+			-- Shows null value in "ReportsTo" column
+			-- Question to ask yourself:
+			-- 		Should this value be null? 
+				SELECT * FROM employees
+				LIMIT 1;
+
+	Show how to customize nulls in GUI
+	Some editors have the export to csv function and let you decide what values for nulls
+
+
+VERTICAL
+
+	Useful tip, use aliases
+
+	Aliases can be used as a shortcut to reference columns or tables
+		- will rename column(s) in the output
+		- can reference columns/tables in the code with the shortcut
+		- will come useful later when using multiple tables
+
+	code:
+		SELECT column_name_1 as cl_1,
+				column_name_2 as cl_2
+				-- notice the alias "as alias_name"
+				-- for both columns and table name
+			FROM table_name as tb
+			LIMIT 10;
+
+
+	Example with our sample DB:
+	-- Show aliases for columns and tables
+		SELECT Name as file_type
+	 		FROM media_types as md
+	 	LIMIT 10;
+
+	 Can also omit the "as" keyword:
+	 	SELECT Name file_type
+	 		FROM media_types md
+	 	LIMIT 10;
+
+VERTICAL
+
+	HOW TO SORT DATA
+
+	SQL has a handy ORDER BY command
+		- sorting is "ordering" data 
+			i.e. from largest to smallest value or vice-versa
+		- ORDER BY lets you sort by one, or multiple columns
+		- Takes specifier DESC or ASC (descending or ascending)
+			- Defaults to ASC if not specified 
+
+	Simple ORDER BY one column
+		- code
+			SELECT * FROM employees
+			ORDER BY last_name ASC
+
+	ORDER BY two columns
+		- Ordering by two columns means sorting one first,
+		- and then within each sorted group, another sorting happens at another column level
+		- I know, very not clear, let's look at some code
+
+	-- CODE WITH ORDER BY number and ORDER BY multiple columns: 
+
+		 -- Simple one column order by
+		 SELECT GenreId, Name -- These happen to be all the columns present in the table "genres"
+			FROM genres
+		 ORDER BY Name ASC -- or DESC, ORDER BY defaults to ASC
+		 
+		 -- This is a shortcut way of doing it:
+		 SELECT GenreId, Name
+			FROM genres
+		 ORDER BY 2 ASC
+		 -- 2 here means the second column
+		--  (in the order written after the SELECT)
+		 
+		 -- ORDER BY with multiple columns
+		 
+		 SELECT Composer, Name, Milliseconds
+		 FROM tracks
+		 ORDER BY Composer DESC, Name;
+
+		 -- Orders first by artist name and then, within each artist, by track name
+		 SELECT Composer, Name, Milliseconds
+		 FROM tracks
+		 ORDER BY 1 DESC, 2;
+
+		 -- Orders by longest track in table
+		  SELECT Composer, Name, Milliseconds
+		 FROM tracks
+		 ORDER BY 3 Desc;
+		 -- Careful if you add a column in between other columns
+		 -- "3" is not gonna be the referencing the same column
+		 -- if using the ORDER BY number method make sure to add additional columns to the end 
+
+ 
+VERTICAL
+	
+	The marvelous WHERE clause
+
+	The SQL way of applying a filter to the data
+	WHERE keyword usually follows a SELECT ... FROM table  	
+	We can specify filtering for one or multiple columns
+	Very customizable in terms of what logic operations we can perform
+		- AND, OR, NOT
+
+
+	Simple WHERE condition for varchar() column
+		SELECT id, my_str_column 
+			FROM table_name
+		WHERE my_str_column = 'some_string'
+		-- here we're assuming that the field my_str_column is a string (varchar())
+
+
+	Simple WHERE condition for numeric column
+		SELECT id, my_num_column
+			FROM table_name
+		WHERE my_num_column = 23
+		-- here we're assuming that my_num_column is an integer or a float
+
+		Simple WHERE condition for numeric column
+		SELECT id, my_num_column
+			FROM table_name
+		WHERE my_num_column = 23
+		-- here we're assuming that my_num_column is an integer or a float
+
+	SIMPLE WHERE condition with use of NULL values
+		to filter for NULL or NOT NULL values
+			SELECT id, my_col
+				FROM table_name
+			WHERE my_col IS NULL
+			-- for the opposite result use:
+			--  WHERE my_col IS NOT NULL 
+
+
+	Combined WHERE condition with AND operator
+		-- both true at the same time
+
+		SELECT id
+				,my_num_column
+				,my_str_column
+			FROM table_name
+			WHERE my_num_column > 2
+			AND my_str_column = 'hello'
+
+
+	WHERE used with OR
+		SELECT id
+				,my_num_column
+				,my_str_column
+			FROM table_name
+			WHERE my_num_column > 2
+			OR my_str_column = 'hello'
+
+
+	WHERE used with AND and OR
+		SELECT id
+				,my_num_column
+				,my_str_column
+			FROM table_name
+			WHERE 
+			(my_num_column > 2 AND my_num_column < 6) 
+			OR my_str_column = 'hello'
+
+	If filtering same numeric column for a range 
+		instead of doing:
+			WHERE my_num_column >= 2 AND my_num_column < 9
+		use (bounds are included):
+			WHERE my_num_column BETWEEN 2 AND 8
+
+
+	WHERE used with IN statement
+	-- Suppose values in "id" columns are integers 1 through 100
+	-- if you have the specific id's, just plug them in a list and use the IN keyword
+	-- (imagine id's to be emails or unique identifiers for a customer in the db)
+		SELECT id
+				,my_num_column
+				,my_str_column
+			FROM table_name
+			WHERE id IN (1,2,3,4)
+
+	WHERE clauses use the IN keyword to filter records to a specified subset
+		For example:
+			you want a list of names and last name, but only where the first name is in this list: Richard, Ann, Chris.
+
+			This is how the SQL would look like
+				SELECT first_name,
+						last_name
+					FROM table_name
+				WHERE first_name IN ('Richard', 'Ann', 'Chris')
+
+			Start to think how you would treat cases in which the value is 'richard' and not 'Richard'
+
+
+---------------------------------------------------------------------------
+
+Built-in RANDOM() function
+    RANDOM() will work in both SQLite and PostgreSQL
+    other SQL dialects use RAND() sometimes
+    if called by itself it outputs a number
+        Example:
+            SELECT random()
+            -- no from because it doesnt really come from a table
+    very useful to use in comination with ORDER BY
+        Example:
+            SELECT col_1,
+                    col_2
+                FROM table_name
+            ORDER BY RANDOM();
+
+        Throw in a LIMIT too, great to get a random sample:        
+            SELECT col_1,
+                    col_2
+                FROM table_name
+            ORDER BY RANDOM()
+            LIMIT 10;
+
+---------------------------------------------------------------------------
+
+COMPARISON OPERATORS:
+    < > = >= <= != (same as <>)
+    (in table)
+
+Can use comparison operators in where clauses
+    - to filter for specific numbers
+    - to filter for strings (= or !=)
+    - to filter for dates
+    - more...
+
+Can use comparison operators in case when statements
+    - to compare numbers
+    - to compare strings
+    - to compare dates
+    - more...
+
+---------------------------------------------------------------------------
+number operators ( + - / * //)
+
+    SQL uses number operators that are very familiar
+    - Addition: +
+    - Subtraction: -
+    - Multiplication: *
+    - Division: /
+    - Modulo or Remainder: // (or MOD() in some SQL syntaxes)
+    - Exponentiation: POWER() in postgreSQL
+        not possible in SQLite, or is it... ? https://stackoverflow.com/questions/13190064/how-to-find-power-of-a-number-in-sqlite
+    - Square root https://www.sqlite.org/contrib -- unavailable functions
+
+    Can use them on individual values
+        - ie: column_1 - column_2
+    Or on aggregates (we'll see these later)
+        - ie: sum(column_1) - sum(column_2)
+
+---------------------------------------------------------------------------
+
+SQL CASE STATEMENTS
+
+CASE is your classic IF statement
+
+Pseudo code [markdown]:
+	IF this condition is true
+		THEN do this
+	ELSE do that
+
+How to build a CASE statement in SQL
+	Condition to evaluate goes after CASE keyword
+		- Can check if value is above or below another value (using > or <)
+			Or in between a range of values (recall BETWEEN AND)
+		- Can check if a varchar column matches a speciic string
+		- Can check for value in list of values (using IN keyword)
+
+	Result action after condition check goes after the THEN keyword
+		- This may not make sense right now, let's look at some code...
+
+	CODE:
+		-- here, CASE WHEN is used to create a column that will act as a 'flag'
+		-- i.e. to specify if the value at that row is less or greater than 10
+		SELECT
+			id,
+			num_col,
+			CASE WHEN num_col > 10
+				THEN 'value is greater than 10'
+				ELSE 'value is less than 10'
+				END AS ten_check,
+			FROM table_name; 
+
+
+
+Case when with multiple conditions
+	CASE WHEN my_num_col > 2 AND my_varchar_col LIKE '%search%'
+		THEN 'custom output'
+		ELSE NULL END AS my_col_name
+
+
+case when with multiple WHENs
+	CASE 
+		WHEN num_col > 2
+			THEN 'output 1'
+		WHEN other_num_col < 25 OR other_varchar_col = 'exact string'
+			THEN 'output 2'
+		WHEN num_col = 10
+			THEN 'output 3'
+		ELSE NULL END AS my_col_name
+
+
+case with the same field
+	(looks like more of a switch case, for those of you who are familiar)
+	Example:
+		CASE field
+			WHEN condition
+				THEN 'output_1'
+			WHEN condition_2 -- on the same field 
+				THEN 'output_2'
+			ELSE NULL END AS my_col_name
+
+nested case when
+
+	CASE WHEN field_1 = 'some string'
+		THEN
+			CASE WHEN field_2 > 20 
+				THEN 'output_1'
+			ELSE NULL END
+		WHEN field_3 > 100
+			THEN 'output_2'
+		ELSE NULL END AS nested_check
+
+case when using IN keyword to check elements belonging to a list (generated in a subquery)
+	
+	CASE WHEN track_id IN (SELECT id FROM tracks WHERE track_duration > 20)
+		THEN 'output_1'
+	ELSE NULL END AS in_check
+
+
+case when using a subquery to calculate one value
+	CASE WHEN num_col = (SELECT max(other_num_col) FROM table_name)
+		THEN 'output_1'
+	ELSE NULL END AS subquery_check
+
+
+
+VERTICAL
+
+STRING FUNCTIONS
+	UPPER(col) - turns column all upper case
+	LOWER(col) - turns column all lower case
+	TRIM(col) - trims leading and trailing white spaces
+	LEFT(col, num) - extracts <num> number of characters starting from the start of the string
+	RIGHT(col, num) - extracts <num> number of characters starting from the end of the string
+	col_1 || col_2 or CONCAT(col_1, col_2) - concatenates the two strings
+
+LIKE operator
+	You may want to use the LIKE operator to match substrings
+		Good to use in WHERE clauses or in CASE WHENs
+
+		Table - Special characters
+			% - Match any character, any amount
+			_ - Match any character, one count
+			[] - Match range of characters, 
+
+
+		General Use:
+			string_col LIKE '%substring to match%'
+			will evaluate to True if 'substring to match' is in the value contained in string_col
+
+		SQL:
+			SELECT
+				col_1
+				,col_2
+				FROM table_name
+			WHERE col_1 LIKE 'search%' -- this will match any string that starts with the word 'search' 
+
+		Tips:
+			always be careful to put the % characters in the right places!
+			can do insensitive case search with:
+				lower(my_col) like '%substring%'
+				my_col ilike '%substring%' -- (in PostgreSQL)
