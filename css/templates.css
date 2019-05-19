@@ -1,0 +1,80 @@
+img {
+	background-color:transparent !important;
+	box-shadow: none !important;
+	border: none !important;
+
+}
+
+pre {
+	background-color:transparent !important;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+ul.space-li > li {
+	padding: .3em 0;
+	font-weight: bold;
+}
+
+#footer {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	font-size: 0.3em;
+}
+
+#footer img {
+	width: 25px;
+	height: 25px;
+	fill:red;
+ 	margin: 0 5px -9px 0;
+ }
+
+ .reveal table {
+	color: #fff;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#intro ul {
+	display: block;
+}
+
+#intro li {
+	/* font-size: 0.8em; */
+	text-align: start;
+}
+
+#intro h4 {
+	text-align: start;	
+}
+
+div.side-bullet-point > div {
+	display: inline-block;
+	width: 49%; 
+	box-sizing: border-box;
+}
+
+/*.side-bullet-point ul {}*/
+.side-bullet-point li {
+	font-size: 31px; 
+	vertical-align: middle;
+}
+
+.side-bullet-point div {
+	vertical-align: middle;
+}
+
+.left-justify-bullets > ul {
+	/* top: 138.5px; */
+	display: block;
+}
+
+
+/*USEFUL*/
+/*text-align: center;
+/*text-indent: 50px;*/
+/*vertical-align: middle
