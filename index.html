@@ -413,10 +413,10 @@
 
         <!-- --------------------------- page: 17 ---------------------------------- -->
         <section>
-            <!-- --------------------------- page: 17.1 ---------------------------------- -->
-            <section>
-              <h2>Let's write some sql</h2>
-              <pre>
+          <!-- --------------------------- page: 17.1 ---------------------------------- -->
+          <section>
+            <h2>Let's write some sql</h2>
+            <pre>
                 <code class="hljs markdown" data-trim data-noescape>
                   
                   ## SELECT statement
@@ -428,53 +428,77 @@
                   - Indentation and spacing in SQL doesn't matter
                 </code>
               </pre>
-            </ul>
           </section>
           <!-- --------------------------- page: 17.1 ---------------------------------- -->
-        
+
           <!-- --------------------------- page: 17.2 ---------------------------------- -->
           <section>
             <h2>SELECT from a table</h2>
             <ul>
-              <li>All columns</li>
-              
-              <pre>
-                <code class="hljs" data-trim data-noescape>
-                  SELECT * FROM table_name
-                </code>
-              </pre>
-              
-              <li>Specific columns, choose the order you want</li>
-              <pre>
-                <code class="hljs" data-trim data-noescape>
-                  SELECT  
-                    column_name_1,
-                    column_name_2,
-                    column_name_3
-                  FROM table				
-                </code>
-              </pre>
+              <li>
+                All columns
+
+                <pre>
+                  <code class="hljs" data-trim data-noescape>
+                    SELECT * FROM table_name
+                  </code>
+                </pre>
+              </li>
+
+              <li>
+                Specific columns, choose the order you want
+                <pre>
+                  <code class="hljs" data-trim data-noescape>
+                    SELECT  
+                      column_name_1,
+                      column_name_2,
+                      column_name_3
+                    FROM table				
+                  </code>
+                </pre>
+              </li>
             </ul>
           </section>
           <!-- --------------------------- page: 17.2 ---------------------------------- -->
-          
+
           <!-- --------------------------- page: 17.3 ---------------------------------- -->
-          <section> 
-            <h4>What if the table outputs too many rows?</h4>
+          <section>
+            <h3>What if the table outputs too many rows?</h3>
             <div>Use limit!</div>
             <pre>
               <code class="hljs" data-trim data-noescape>
                 SELECT 
-                column_1,
-                column_2 
+                  column_1,
+                  column_2 
                 FROM table_name
                 LIMIT 100;
               </code>
             </pre>
           </section>
           <!-- --------------------------- page: 17.3 ---------------------------------- -->
-      </section>
-      <!-- --------------------------- page: 17 ---------------------------------- -->
+
+          <!-- --------------------------- page: 17.4 ---------------------------------- -->
+          <section>
+            <h4>How to describe / put comments in your code</h4>
+            <h3>Comments in SQL</h3>
+            <ul>
+              <li>
+                This query does so and so
+              </li>
+            </ul>
+            <pre>
+                <code class="hljs" data-trim data-noescape>
+                  SELECT 
+                    column_1,
+                    column_2 
+                  FROM table_name
+                  LIMIT 100;
+                </code>
+              </pre>
+          </section>
+          <!-- --------------------------- page: 17.4 ---------------------------------- -->
+        </section>
+        <!-- --------------------------- page: 17 ---------------------------------- -->
       </div>
 
       <div id="footer">
@@ -487,7 +511,13 @@
     <script>
       Reveal.initialize({
         dependencies: [
-          {src: 'slides/plugin/highlight/highlight.js', async: true}
+          {
+            src: 'slides/plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad()
+            }
+          }
         ]
       })
     </script>
