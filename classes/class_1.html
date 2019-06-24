@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<meta
+	  name="viewport"
+	  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	/>
+
+	<title>SQL Class - Noisebridge</title>
+
+	<link rel="stylesheet" href="../slide/reveal/css/reset.css">
+	<link rel="stylesheet" href="../slide/reveal/css/reveal.css">
+	<link rel="stylesheet" href="../slide/reveal/css/theme/black.css">
+	<link rel="stylesheet" href="../slide/css/templates.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../slide/reveal/lib/css/monokai.css">
+	
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- -------------------------------------------------------------------- -->
+			<!-- Intro --> 
+			<!-- id: 1 -->
+			<!-- -------------------------------------------------------------------- -->
+			<section id="intro">
+				<h3>Noisebridge - SQL class</h3>
+				<h3>Intro to SQL - Class #1 </h4>
+					<br>
+					<div class="side-bullet-point">
+						<div>
+							<h4>Useful links: </h4>
+							<ul>
+								<li><a href="https://www.meetup.com/TBD">Meetup</a></li>
+								<li><a href="https://wiki.noisebridge.net/TBD">NB wiki</a></li>
+								<li><a href="https://www.github.com/maniqin/noisebridge_sql">Github Repo</a></li>
+							</ul>
+						</div>
+						<div>
+							<img src="../slide/assets/nb_logo.svg" alt="Noisebridge Logo">
+						</div>
+
+					</div>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Previous Class -->
+				<!-- id: 2 -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">Previous class review:
+					<pre>
+						<code class="hljs markdown" data-trim data-trim data-noescape>
+
+							## No class to review before today, this is the first one!  
+
+							Let's learn SQL
+						</code>
+					</pre>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- What is SQL and why is is used -->
+				<!-- id: 7 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h3>What is SQL and why is it used?</h3>
+					<div class="side-bullet-point">
+						<div>
+							<ul>
+								<li>S(trucured) Q(uery) L(anguage)</li>
+								<li>We can access databases with it</li>
+								<li>Fast / efficient storage & retrieval</li>
+								<li>One of the most used / popular ways to store data</li>
+								<li>Key component to backends of many Web Apps</li>
+							</ul>
+						</div>
+						<div>
+							<img src="../slide/assets/db.png" alt="good image!" width="200" height="200"/>
+							<br>
+						</div>
+					</div>
+
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- SQL variants -->
+				<!-- id: 14  -->
+				<!-- -------------------------------------------------------------------- -->
+				<section class="table" data-background="#002b36">
+					<h2>Several variants of SQL</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>RDBMS</th>
+								<th>Open</th>
+								<th>Proprietary</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>PostgreSQL</td>
+								<td>Yes</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>MySQL</td>
+								<td>Yes (community)</td>
+								<td>Yes (enterprise)</td>
+							</tr>
+							<tr>
+								<td>SQL Server</td>
+								<td>No</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>SQLite</td>
+								<td>Yes</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Many more...</td>
+								<td>etc</td>
+								<td>etc</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- RDBMS -->
+				<!-- id: 7 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section class="double-bulleted" data-background="#002b36">
+					<h2>Key DB concepts</h2>
+						<ul>
+							<li>
+								Different types of Databases optimized to do different things
+							</li>
+
+								<ul>
+									<li>Analytical db vs operational db</li>
+									<li>DB on file vs DB on server</li>
+								</ul>
+								<br>
+
+								<li>
+									Understanding why it's called RDBMS (relational database management system)
+								</li>
+								<ul>
+									<li>Can decide what are the relationships between tables before filling them with data</li>
+									<li>Very important step, if not the most important, gonna have repercussions in the future</li>
+								</ul>
+							</ul>
+						</section>
+
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- double_bulleted_list -->
+				<!-- id: 7 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section class="double-bulleted" data-background="#002b36">
+					<div>
+						<div>
+							<h2>Tables</h2>
+						</div>
+						<div>
+						<ul>
+							<li>
+								What is a table?
+							</li>
+								<ul>
+									<li>
+									<a href="https://en.wikipedia.org/wiki/Table_(database)">Wikipedia Ref</a></li>
+								</ul>
+
+								<li>
+									Why multiple tables and not just one?
+								</li>
+								<ul>
+									<li>Storage efficiency</li>
+									<li>Data better organized</li>
+									<li>Encapsulate concepts into tables</li>
+								</ul>
+							</ul>
+						</div>
+					</div>
+						</section>
+
+
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- h3 What is a column -->
+				<!-- id: 5 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h3>What is a <a href="https://en.wikipedia.org/wiki/Column_(database)">Column</a> or Field?</h3>
+						<ul>
+
+							<li>A field is a column in a table</li>
+							<li>Vertical entity that stores data</li>
+							<li>We can apply filters on columns</li>
+								<ul>
+									<li>
+										just like you would on a spreadsheet
+									</li>
+								</ul>
+							<li>Columns store a specific data types</li>
+								<ul>
+									<li>more on this later</li>
+								</ul>
+						</ul>
+				</section>
+						 
+		
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Table schema intro-->
+				<!-- id: 13 -->
+				<!-- -------------------------------------------------------------------- -->
+
+
+					<section data-background="#002b36">
+						<h3>What is a table schema?</h3>
+						<ul>
+						<li>A schema is a collection of (most likely) related tables</li>
+						<li>How do I draw / design one?</li>
+					</ul>
+					</section>
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- ERD Diagram (Entity relationship diagram) -->
+				<!-- id: 11 -->
+				<!-- -------------------------------------------------------------------- -->
+
+					<section data-background="#002b36">
+						<h3>Entity relationship diagram (ERD)</h3>
+						<img src="../slide/assets/db_schema.png"  alt="Database Schema" width="60%" height="60%" />
+					</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Undestanding Keys -->
+				<!-- id: 5 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h3>Keys</h3>
+					<ul class= "space-li">
+						<li>What's a Primary Key? (aka join key)</li>
+						<li>What's a Foreign Key? (aka join key)</li>
+							<ul>
+								<li>Why should I care about all this??</li>
+							</ul>
+					</ul>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Understanding constraints -->
+				<!-- id: 5 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h4>Understnading Constrants</h4>
+					<ul>
+						<li>When creating a table we can set specific constraints to it</li>
+						<li>This means columns we specify will follow set rules (i.e. never being empty)</li>
+						<li>Some examples of constraints: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, etc..</li>
+						<li><a href="https://www.w3schools.com/sql/sql_constraints.asp">W3 Schools Ref</a></li>
+					</ul>
+				</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- Data Types -->
+		<!-- id: 7 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<section class="double-bulleted" data-background="#002b36">
+			<h4>Data Types</h4>                 
+				<ul>
+					<li>
+						Columns are created with a set data type
+					</li>
+						<ul>
+							<li>This means that a given column will accomodate a specific type of data and refuse other ones</li>
+						</ul>
+						<br>
+
+						<li>
+							Most common data types:
+						</li>
+						<ul>
+							<li>integers</li>
+							<li>floats</li>
+							<li>date/datetime/timestamp</li>
+							<li>varchar</li>
+							<li>boolean</li>
+							<li>autoincrement/sequence</li>
+							<li><a href="https://www.geeksforgeeks.org/sql-datatypes/">geeksforgeeks ref</a></li>
+						</ul>
+					</ul>
+		</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- SQL Statements -->
+		<!-- id: 5 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<section data-background="#002b36">
+			<h3>SQL Statements</h3>
+			<h5>(aka SQL code, queries, SQL pulls)</h5>
+			<div><u>The way we interact with the DB</u></div>
+			<ul>
+				<li>Creating tables</li>
+				<li>Inserting data into tables</li>
+				<li>Deleting data from tables</li>
+				<li>Query data from tables</li>
+			</ul>
+		</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- SQL Statements -->
+		<!-- id: 5 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<section data-background="#002b36">
+			<div>Statement Types</div>
+			<ul>
+				<li>DDL, DML, DCL, TCL</li>
+					<ul>
+						<li>(definition, manipulation, control, transaction control)</li>
+					</ul>
+				<li><a href="https://www.geeksforgeeks.org/sql-ddl-dml-dcl-tcl-commands/">geeksforgeeks ref</a></li>
+				<li>We'll start with DML (simple SELECT queries)</li>
+			</ul>
+		</section>
+
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- before diving in -->
+		<!-- id: 13 -->
+		<!-- -------------------------------------------------------------------- -->
+
+			<section data-background="#002b36">
+				<h3>Before we can get SQLing...</h3>
+				<h5>we need a DB</h5>
+			</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- double_bulleted_list -->
+		<!-- id: 7 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<section class="double-bulleted" data-background="#002b36">
+			<h2>To start</h2>
+			<!-- <ul style="font-size: 0.6em;"> -->
+				<ul>
+					<li>
+						Download a sample db
+					</li>
+						<ul>
+							<li>Let's start with a simple sqlite file, <a href="http://www.sqlitetutorial.net/sqlite-sample-database/">here</a></li>
+							<li>Or <a href="http://www.postgresqltutorial.com/postgresql-sample-database/">here's a sample postres dump</a> or for the music nerds, <a href="https://musicbrainz.org/statistics">this</a></li>
+								<ul>
+									<li>Need to install postgres for this one, if interested talk to me after class</li>
+								</ul>
+						</ul>
+						<br>
+
+						<li>
+							Download SQL client gui
+						</li>
+						<ul>
+							<li><a href="https://sqlitebrowser.org/">SQLiteBrowser</a> (works on all machines)</li>
+						</ul>
+					</ul>
+				</section>
+
+
+
+
+		<!-- -------------------------------------------------------------------- 
+		vertical stack template 
+		id: 9
+		-------------------------------------------------------------------- -->
+
+		<section class="stack" data-background="#2d3a4f">
+			<section>
+				<h2>Let's write some sql</h2>
+					<pre>
+						<code class="hljs markdown" data-trim data-noescape>
+
+							## SELECT statement
+							- SELECT, as the word implies, "selects" data from tables
+							- SQL way to retrieve data from one or multiple tables
+							- May be the most common statement you'll see around
+							- 99.9% of the times it will be followed by a FROM
+							- Doesn't matter if typed upper or lower case
+							- Indentation and spacing in SQL doesn't matter
+						</code>
+					</pre>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>SELECT from a table</h2>
+				<ul>
+					<li>All columns</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+									SELECT * FROM table_name
+							</code>
+						</pre>
+
+					<li>Specific columns, choose the order you want</li>
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+									SELECT  
+										column_name_1,
+										column_name_2,
+										column_name_3
+									FROM table              
+							</code>
+						</pre>
+				</ul>
+			</section>
+
+			<section> 
+				<h4>What if the table outputs too many rows?</h4>
+					<div>Use limit!</div>
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+									SELECT 
+										column_1,
+										column_2 
+									FROM table_name
+									LIMIT 100;
+					</code>
+				</pre>
+			</section>
+
+			<section> 
+				<h4></h4>
+					<div>Use limit!</div>
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+								SELECT 
+									column_1,
+									column_2 
+								FROM table_name
+								LIMIT 100;
+						</code>
+					</pre>
+			</section>
+
+			<section>
+				<h3>Comments in SQL</h3>
+				<h5>How to describe / put comments in your code</h5>
+				<pre>
+					<code class="hljs" data-trim data-noescape>
+			--This is a comment
+				SELECT column_1,
+						column_2 
+					FROM table_name -- this is an inline comment
+					
+				/*
+					You will need multi-line comment
+						at some point
+					Believe me
+				*/
+			
+			LIMIT 100;
+					</code>
+				  </pre>
+			</section>
+
+		</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- footer template -->
+		<!-- id: 12 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<div id="footer-left">
+			Noisebridge SQL Class
+			<img src="../slide/assets/nb_logo.svg" alt="Noisebridge Logo" />
+		</div>
+
+		</div>
+	</div>
+
+	<script src="../slide/reveal/js/reveal.js"></script>
+
+	<script>
+			Reveal.initialize({
+				dependencies: [
+				{ src: '../reveal_lean/plugin/markdown/marked.js', async: true  },
+				{ src: '../reveal_lean/plugin/markdown/markdown.js', async: true  },
+				{ src: '../reveal_lean/plugin/notes/notes.js', async: true },
+				{ src: '../reveal_lean/plugin/highlight/highlight.js', async: true },
+				{ src: '../reveal_lean/plugin/zoom-js/zoom.js', async: true },
+				]
+			});
+		</script>
+	</body>
+	</html>
+
