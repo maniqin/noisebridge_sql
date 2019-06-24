@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<meta
+	  name="viewport"
+	  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	/>
+
+	<title>SQL Class - Noisebridge</title>
+
+	<link rel="stylesheet" href="../slide/reveal/css/reset.css">
+	<link rel="stylesheet" href="../slide/reveal/css/reveal.css">
+	<link rel="stylesheet" href="../slide/reveal/css/theme/black.css">
+	<link rel="stylesheet" href="../slide/css/templates.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../slide/reveal/lib/css/monokai.css">
+	
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- -------------------------------------------------------------------- -->
+			<!-- Intro --> 
+			<!-- id: 1 -->
+			<!-- -------------------------------------------------------------------- -->
+			<section id="intro">
+				<h3>Noisebridge - SQL class</h3>
+				<h3>Intro to SQL - Class #1 </h4>
+					<br>
+					<div class="side-bullet-point">
+						<div>
+							<h4>Useful links: </h4>
+							<ul>
+								<li><a href="https://www.meetup.com/TBD">Meetup</a></li>
+								<li><a href="https://wiki.noisebridge.net/TBD">NB wiki</a></li>
+								<li><a href="https://www.github.com/maniqin/noisebridge_sql">Github Repo</a></li>
+							</ul>
+						</div>
+						<div>
+							<img src="../slide/assets/nb_logo.svg" alt="Noisebridge Logo">
+						</div>
+					</div>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Previous Class -->
+				<!-- id: 2 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">Previous class review:
+					<pre>
+						<code class="hljs markdown" data-trim data-noescape>
+
+						## Make sure to have a db installed
+
+						- Previous class review
+							- What is a db, what is SQL, why do we use it
+							- SELECT * FROM table_name
+							- SELECT column_1, colunm_2 FROM table_name
+							- LIMIT
+							- -- Comments!
+						</code>
+					</pre>
+				</section>
+
+
+
+		<!-- -------------------------------------------------------------------- 
+		vertical stack template 
+		id: 9
+		-------------------------------------------------------------------- -->
+
+		<section class="stack" data-background="#002b36">
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- double_bulleted_list -->
+				<!-- id: 2 -->
+				<!-- Title: NULL values -->
+				<!-- -------------------------------------------------------------------- -->
+				<section class="double-bulleted" data-background="#002b36">
+					<div>
+						<div>
+							<h5>Let's talk about NULL Values</h5>
+						</div>
+						<div>
+						<ul>
+							<li>
+								NULL values are special values in a table's records
+							</li>
+								<ul>
+									<li>
+									<a href="https://en.wikipedia.org/wiki/Table_(database)">include pic on the side of null values in various consoles</a></li>
+								</ul>
+
+								<li>
+									A NULL literally means 'no data in this record in this column'
+								</li>
+								<ul>
+									<li>Watch out: very different from a blank string or a string literally spelling 'NULL'</li>
+									<li>Example of nulls next</li>
+								</ul>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- only_code -->
+				<!-- id: 10 -->
+				<!-- Title: Code for Nulls -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<p>SQL code:</p>
+					<pre>
+						<code class="hljs" data-trim data-noescape>
+						-- Shows null value in "ReportsTo" column
+						SELECT * FROM employees
+							LIMIT 1;
+
+						-- Question to ask yourself:
+							-- 	Should this value be null? 
+						</code>
+
+					</pre>
+				</section>
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- 1x1 grid with bullet points (left) and image (right) -->
+				<!-- id: 4 -->
+				<!-- Title: customize nulls in GUI -->
+				<!-- -------------------------------------------------------------------- -->
+				
+				<section data-background="#002b36">
+					<h5>Customize view of NULL values in GUIs</h5>
+					<div class="side-bullet-point">
+						<div>
+							<ul>
+								<li>Different GUIs show NULLs in different ways</li>
+								<li>Careful again with fake NULLs (strings or blanks)</li>
+							</ul>
+						</div>
+						<div>
+							<img src="#" alt="good image!">
+						</div>
+
+					</div>
+				</section>
+
+		</section>
+
+
+
+		<!-- -------------------------------------------------------------------- 
+		vertical stack template 
+		id: 9
+		-------------------------------------------------------------------- -->
+
+		<section class="stack" data-background="#002b36">
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- bullet_points_list -->
+				<!-- id: 15 -->
+				<!-- Title: Aliases -->
+				<!-- -------------------------------------------------------------------- -->			
+			<section data-background="#002b36">
+				<h5>Useful tip, use aliases</h5>
+					<p>Aliases can be used as a shortcut to reference columns or tables</p>
+						<ul>
+							<li>will rename column(s) in the output</li>
+							<li>can reference columns/tables in the code with the shortcut</li>
+							<li>will come useful later when using multiple tables</li>
+						</ul>
+			</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- only_code -->
+				<!-- id: 10 -->
+				<!-- Title: Code for Nulls -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<p>SQL code:</p>
+					<pre>
+						<code class="hljs" data-trim data-noescape>
+							SELECT column_name_1 as cl_1,
+								column_name_2 as cl_2
+							-- notice the alias "as alias_name"
+							-- for both columns and table name
+								FROM table_name as tb
+								LIMIT 10;
+						</code>
+					</pre>
+				</section>
+
+
+
+
+
+
+		</section>
+
+
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- footer template -->
+		<!-- id: 12 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<div id="footer-left">
+			Noisebridge SQL Class
+			<img src="../slide/assets/nb_logo.svg" alt="Noisebridge Logo" />
+		</div>
+
+		</div>
+	</div>
+
+	<script src="../slide/reveal/js/reveal.js"></script>
+
+	<script>
+			Reveal.initialize({
+				dependencies: [
+				{ src: '../slide/reveal/plugin/markdown/marked.js', async: true  },
+				{ src: '../slide/reveal/plugin/markdown/markdown.js', async: true  },
+				{ src: '../slide/reveal/plugin/notes/notes.js', async: true },
+				{ src: '../slide/reveal/plugin/highlight/highlight.js', async: true },
+				{ src: '../slide/reveal/plugin/zoom-js/zoom.js', async: true },
+				]
+			});
+		</script>
+	</body>
+	</html>
+
