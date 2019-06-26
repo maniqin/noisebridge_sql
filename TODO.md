@@ -3,11 +3,25 @@
 	- Change color for NB logo in svg
 	- Change background color first slide
 	- Change text color, slightly darker (too bright right now)
-	- Make code block fade with background
+	- Change background color between code slides and no-code slides
 	- Make examples consistent (either from fake tables or real tables from the actual chinook.db)
+	- Add final recap slide for each class
+
 
 	### Class 1:
 		- Revise <h> tags
 
 	### Class 2:
-		- Get image for NULLs in 'customize nulls in GUI' slide
+		- Add image for NULLs in 'customize nulls in GUI' slide
+
+
+	### Class 4:
+		- Add image for group by columns slides
+
+	Next material TODO:
+		joins with subqueries
+		joins with aggregate subqueries
+		window functions
+		CTEs
+		
+

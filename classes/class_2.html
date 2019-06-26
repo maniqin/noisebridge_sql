@@ -29,7 +29,7 @@
 			<!-- -------------------------------------------------------------------- -->
 			<section id="intro">
 				<h3>Noisebridge - SQL class</h3>
-				<h3>Intro to SQL - Class #1 </h4>
+				<h3>Intro to SQL - Class #2 </h3>
 					<br>
 					<div class="side-bullet-point">
 						<div>
@@ -50,7 +50,6 @@
 				<!-- Previous Class -->
 				<!-- id: 2 -->
 				<!-- -------------------------------------------------------------------- -->
-
 				<section data-background="#002b36">Previous class review:
 					<pre>
 						<code class="hljs markdown" data-trim data-noescape>
@@ -84,7 +83,7 @@
 				<section class="double-bulleted" data-background="#002b36">
 					<div>
 						<div>
-							<h5>Let's talk about NULL Values</h5>
+							<h4>Let's talk about NULL Values</h4>
 						</div>
 						<div>
 						<ul>
@@ -123,7 +122,7 @@
 							LIMIT 1;
 
 						-- Question to ask yourself:
-							-- 	Should this value be null? 
+						-- 	Should this value be null? 
 						</code>
 
 					</pre>
@@ -201,8 +200,421 @@
 
 
 
+				<section data-background="#002b36">
+					<ul>
+						<li>From our sample DB</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							-- Show aliases for columns and tables
+							SELECT name as file_type
+			 				FROM media_types as md
+				 			LIMIT 10;
+							</code>
+						</pre>
+
+						<li>Can also omit the "as" keyword:</li>
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+				 			SELECT name file_type
+				 				FROM media_types md
+				 			LIMIT 10;
+							</code>
+						</pre>
+					</ul>
+				</section>
+		</section>
+
+		<!-- -------------------------------------------------------------------- 
+		vertical stack template 
+		id: 9
+		-------------------------------------------------------------------- -->
+
+		<section class="stack" data-background="#002b36">
 
 
+				<!-- -------------------------------------------------------------------- -->
+				<!-- double_bullet_list -->
+				<!-- id: 7 -->
+				<!-- Title: ORDER BY -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h5>How to sort data</h5>
+					<div class="side-bullet-point">
+						<p>SQL has a handy ORDER BY command</p>
+						<div>
+							<ul>
+								<li>sorting is "ordering" data</li>
+									<ul>
+										<li>i.e. from largest to smallest value or vice-versa</li>
+									</ul>
+								
+								<li>ORDER BY lets you sort by one, or multiple columns</li>
+								<li>Takes specifier DESC or ASC (descending or ascending)</li>
+									<ul>
+										<li>Defaults to ASC if not specified</li>
+									</ul>
+								
+							</ul>
+						</div>
+						<div>
+							<img src="#" alt="good image!">
+						</div>
+
+					</div>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: ORDER BY -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>Simple ORDER BY one column</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+								SELECT * FROM employees
+									ORDER BY last_name ASC;
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- 1x1 grid with bullet points (left) and image (right) -->
+				<!-- id: 4 -->
+				<!-- Title: ORDER BY 2 columns code -->
+				<!-- -------------------------------------------------------------------- -->
+				
+				<section data-background="#002b36">
+					<h5>ORDER BY two columns</h5>
+					<div class="side-bullet-point">
+						<div>
+							<ul>
+								<li>Ordering by two columns means sorting one first</li>
+								<li>...and then within each sorted group, another sorting happens at another column level</li>
+								<li>I know, not very clear, let's look at some code</li>
+							</ul>
+						</div>
+						<div>
+							<img src="#" alt="order by two columns">
+						</div>
+
+					</div>
+				</section>
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: ORDER BY 2 columns code-->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>Code with ORDER BY number and ORDER BY multiple columns: </li>
+					</ul>	
+					<pre>
+						<code class="hljs" data-trim data-noescape>
+						--  Simple one column order by
+							SELECT GenreId, Name 
+							FROM genres
+							ORDER BY Name ASC;
+							-- You can also use DESC, ORDER BY defaults to ASC
+							
+						</code>
+					</pre>
+					<pre>
+						<code class="hljs" data-trim data-noescape>
+						 -- This is a shortcut way of doing it:
+							SELECT GenreId, Name
+								FROM genres
+							 ORDER BY 2 ASC
+							-- 2 here means the second column
+							--  (in the order written after the SELECT)
+							 ;
+						</code>
+					</pre>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: ORDER BY 2 columns more code-->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+						 -- ORDER BY with multiple columns							 
+							 SELECT Composer, Name, Milliseconds
+							 FROM tracks
+							 ORDER BY Composer DESC, Name;
+
+							</code>
+						</pre>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+						 -- Orders first by artist name and then, within each artist, by track name
+							 SELECT Composer, Name, Milliseconds
+							 FROM tracks
+							 ORDER BY 1 DESC, 2;
+							</code>
+						</pre>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+						 -- Orders by longest track in table
+							  SELECT Composer, Name, Milliseconds
+							 FROM tracks
+							 ORDER BY 3 Desc;
+							 -- Careful if you add a column in between other columns
+							 -- "3" is not gonna be the referencing the same column
+							 -- if using the ORDER BY number method make sure to add additional columns to the end 
+
+							</code>
+						</pre>
+				</section>
+		</section>
+
+		<!-- -------------------------------------------------------------------- 
+		vertical stack template 
+		id: 9
+		-------------------------------------------------------------------- -->
+
+		<section class="stack" data-background="#002b36">
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- 1x1 grid with bullet points (left) and image (right) -->
+				<!-- id: 4 -->
+				<!-- Title: ORDER BY 2 columns code -->
+				<!-- -------------------------------------------------------------------- -->
+				
+				<section data-background="#002b36">
+					<h5>The marvelous WHERE clause</h5>
+					<div class="side-bullet-point">
+						<div>
+							<ul>
+								<li>The SQL way of applying a filter to the data</li>
+								<li>WHERE keyword usually follows a SELECT ... FROM table</li>
+								<li>We can specify filtering for one or multiple columns</li>
+								<li>Very customizable in terms of what logic operations we can perform</li>
+									<ul>
+										<li>- AND, OR, NOT</li>
+									</ul>
+							</ul>
+						</div>
+						<div>
+							<img src="#" alt="the where clause">
+						</div>
+					</div>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: WHERE code -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>Simple WHERE condition for varchar() column</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							SELECT id, my_str_column 
+								FROM table_name
+							WHERE my_str_column = 'some_string';
+							-- here we're assuming that 
+							-- the field my_str_column is a string (varchar)
+							</code>
+						</pre>
+
+						<li>Simple WHERE condition for numeric column</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							SELECT id, my_num_column
+								FROM table_name
+							WHERE my_num_column = 23;
+							-- here we're assuming that
+							-- my_num_column is an integer or a float
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: WHERE code (continued) -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>Simple WHERE condition for numeric column</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							SELECT id, my_num_column
+								FROM table_name
+							WHERE my_num_column = 23;
+							-- here we're assuming that my_num_column is an integer or a float
+
+							</code>
+						</pre>
+
+						<li>Simple WHERE condition with use of NULL values</li>
+							<p>to filter for NULL or NOT NULL values</p>
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							SELECT id, my_col
+								FROM table_name
+							WHERE my_col IS NULL;
+							-- for the opposite result use:
+							--  WHERE my_col IS NOT NULL 
+
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: WHERE and AND -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>Combined WHERE condition with AND operator</li>
+							<p>both true at the same time</p>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+							SELECT id
+									,my_num_column
+									,my_str_column
+								FROM table_name
+								WHERE my_num_column > 2
+								AND my_str_column = 'hello';
+							</code>
+						</pre>
+
+						<li>WHERE used with OR</li>
+						
+						<pre>
+							<code>
+								SELECT id
+									,my_num_column
+									,my_str_column
+								FROM table_name
+								WHERE my_num_column > 2
+								OR my_str_column = 'hello';
+
+							</code>
+						</pre>
+
+						<li>WHERE used with AND and OR</li>
+						<pre>
+							<code>
+								SELECT id
+										,my_num_column
+										,my_str_column
+									FROM table_name
+									WHERE 
+									(my_num_column > 2 AND my_num_column < 6) 
+									OR my_str_column = 'hello';					
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: BETWEEN AND -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>If filtering same numeric column for a range, instead of doing:</li>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+								WHERE my_num_column >= 2 AND my_num_column < 9
+							</code>
+						</pre>
+
+						<li>use (bounds are included):</li>
+						<pre>
+							<code>
+								WHERE my_num_column BETWEEN 2 AND 8
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: WHERE IN () -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>WHERE used with IN statement</li>
+
+						<pre>
+							<code class="hljs markdown" data-trim data-noescape>
+								-- Suppose values in "id" columns are integers 1 through 100
+								-- if you have the specific id's, just plug them in a list and use the IN keyword
+								-- (imagine id's to be emails or unique identifiers for a customer in the db)	
+							</code>
+						</pre>
+
+						<pre>
+							<code>
+							SELECT id
+								,my_num_column
+								,my_str_column
+								FROM table_name
+								WHERE id IN (1,2,3,4);
+							</code>
+						</pre>
+					</ul>
+				</section>
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- Title bullet points and code template -->
+				<!-- id: 8 -->
+				<!-- Title: WHERE IN filter for names () -->
+				<!-- -------------------------------------------------------------------- -->
+				<section data-background="#002b36">
+					<ul>
+						<li>WHERE clauses use the IN keyword to filter records to a specified subset</li>
+
+						<ul>For example:
+							<li>you want a list of names and last name, 
+							<li>but only where the first name is in this list: Richard, Ann, Chris.</li>
+						</ul>
+
+						<pre>
+							<code class="hljs" data-trim data-noescape>
+						--	This is how the SQL would look like
+							SELECT first_name,
+									last_name
+								FROM table_name
+							WHERE first_name IN ('Richard', 'Ann', 'Chris');
+						-- Start to think how you would treat cases in which the value is 'richard' and not 'Richard'
+							</code>
+						</pre>
+
+					</ul>
+				</section>
 
 		</section>
 
@@ -227,8 +639,8 @@
 	<script>
 			Reveal.initialize({
 				dependencies: [
-				{ src: '../slide/reveal/plugin/markdown/marked.js', async: true  },
-				{ src: '../slide/reveal/plugin/markdown/markdown.js', async: true  },
+				{ src: '../slide/reveal/plugin/markdown/marked.js', async: true },
+				{ src: '../slide/reveal/plugin/markdown/markdown.js', async: true },
 				{ src: '../slide/reveal/plugin/notes/notes.js', async: true },
 				{ src: '../slide/reveal/plugin/highlight/highlight.js', async: true },
 				{ src: '../slide/reveal/plugin/zoom-js/zoom.js', async: true },

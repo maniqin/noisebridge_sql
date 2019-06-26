@@ -45,7 +45,7 @@ template_id: 7
 
 ------------------------------------------------------------------------------------
 template: table_template
-template_id: 4
+template_id: 14
 ------------------------------------------------------------------------------------
 
 	- Several variants of sql (proprietary vs open)
@@ -425,7 +425,7 @@ template_id: 4
 	HOW TO SORT DATA
 
 	SQL has a handy ORDER BY command
-		- sorting is "ordering" data 
+		- sorting is "ordering" data
 			i.e. from largest to smallest value or vice-versa
 		- ORDER BY lets you sort by one, or multiple columns
 		- Takes specifier DESC or ASC (descending or ascending)
@@ -551,7 +551,7 @@ template_id: 8
 		-- here we're assuming that my_num_column is an integer or a float
 		;
 
-	SIMPLE WHERE condition with use of NULL values
+	Simple WHERE condition with use of NULL values
 		to filter for NULL or NOT NULL values
 			SELECT id, my_col
 				FROM table_name
@@ -623,8 +623,7 @@ template_id: 8
 				,my_num_column
 				,my_str_column
 			FROM table_name
-			WHERE id IN (1,2,3,4)
-			;
+			WHERE id IN (1,2,3,4);
 
 ------------------------------------------------------------------------------------
 template: Title bullet points and code template
@@ -651,6 +650,48 @@ template_id: 8
 
 
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+CLASS 3
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 1 
+------------------------------------------------------------------------------------
+
+CLASS 3 - Intro
+Links to meetup, gh, and wiki
+
+
+------------------------------------------------------------------------------------
+template: Previous Class
+template_id: 2 
+------------------------------------------------------------------------------------
+	
+-- Null values
+-- Aliases
+-- Sorting Data
+-- WHERE clause
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
 
 Built-in RANDOM() function
     RANDOM() will work in both SQLite and PostgreSQL
@@ -660,6 +701,13 @@ Built-in RANDOM() function
             SELECT random()
             -- no from because it doesnt really come from a table
             ;
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+
     very useful to use in comination with ORDER BY
         Example:
             SELECT col_1,
@@ -676,10 +724,27 @@ Built-in RANDOM() function
 
 ---------------------------------------------------------------------------
 
+
+
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+------------------------------------------------------------------------------------
+template: table_template
+template_id: 14
+------------------------------------------------------------------------------------
+
 COMPARISON OPERATORS:
     < > = >= <= != (same as <>)
     (in table)
 
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
 Can use comparison operators in where clauses
     - to filter for specific numbers
     - to filter for strings (= or !=)
@@ -693,6 +758,17 @@ Can use comparison operators in case when statements
     - more...
 
 ---------------------------------------------------------------------------
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
+
 number operators ( + - / * //)
 
     SQL uses number operators that are very familiar
@@ -712,6 +788,19 @@ number operators ( + - / * //)
 
 ---------------------------------------------------------------------------
 
+
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
 SQL CASE STATEMENTS
 
 CASE is your classic IF statement
@@ -721,6 +810,11 @@ Pseudo code [markdown]:
 		THEN do this
 	ELSE do that
 
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
 How to build a CASE statement in SQL
 	Condition to evaluate goes after CASE keyword
 		- Can check if value is above or below another value (using > or <)
@@ -731,8 +825,14 @@ How to build a CASE statement in SQL
 	Result action after condition check goes after the THEN keyword
 		- This may not make sense right now, let's look at some code...
 
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
 	CODE:
-		-- here, CASE WHEN is used to create a column that will act as a 'flag'
+		-- here CASE WHEN is used to create a column that will act as a 'flag'
 		-- i.e. to specify if the value at that row is less or greater than 10
 		SELECT
 			id,
@@ -744,12 +844,20 @@ How to build a CASE statement in SQL
 			FROM table_name; 
 
 
-
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 Case when with multiple conditions
 	CASE WHEN my_num_col > 2 AND my_varchar_col LIKE '%search%'
 		THEN 'custom output'
 		ELSE NULL END AS my_col_name
 
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
 
 case when with multiple WHENs
 	CASE 
@@ -762,6 +870,11 @@ case when with multiple WHENs
 		ELSE NULL END AS my_col_name
 
 
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
 case with the same field
 	(looks like more of a switch case, for those of you who are familiar)
 	Example:
@@ -771,6 +884,11 @@ case with the same field
 			WHEN condition_2 -- on the same field 
 				THEN 'output_2'
 			ELSE NULL END AS my_col_name
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
 
 nested case when
 
@@ -783,12 +901,21 @@ nested case when
 			THEN 'output_2'
 		ELSE NULL END AS nested_check
 
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
 case when using IN keyword to check elements belonging to a list (generated in a subquery)
 	
 	CASE WHEN track_id IN (SELECT id FROM tracks WHERE track_duration > 20)
 		THEN 'output_1'
 	ELSE NULL END AS in_check
 
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
 
 case when using a subquery to calculate one value
 	CASE WHEN num_col = (SELECT max(other_num_col) FROM table_name)
@@ -797,7 +924,10 @@ case when using a subquery to calculate one value
 
 
 
-VERTICAL
+------------------------------------------------------------------------------------
+template: table_template
+template_id: 14
+------------------------------------------------------------------------------------
 
 STRING FUNCTIONS
 	UPPER(col) - turns column all upper case
@@ -807,27 +937,46 @@ STRING FUNCTIONS
 	RIGHT(col, num) - extracts <num> number of characters starting from the end of the string
 	col_1 || col_2 or CONCAT(col_1, col_2) - concatenates the two strings
 
+
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
+
 LIKE operator
 	You may want to use the LIKE operator to match substrings
 		Good to use in WHERE clauses or in CASE WHENs
 
 		Table - Special characters
-			% - Match any character, any amount
-			_ - Match any character, one count
-			[] - Match range of characters, 
+			% -->  Match any character, any amount
+			_ -->  Match any character, one count
+			[] --> Match range of characters
 
 
 		General Use:
 			string_col LIKE '%substring to match%'
 			will evaluate to True if 'substring to match' is in the value contained in string_col
 
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
+
 		SQL:
 			SELECT
 				col_1
 				,col_2
 				FROM table_name
-			WHERE col_1 LIKE 'search%' -- this will match any string that starts with the word 'search' 
-			;
+			WHERE col_1 LIKE 'search%'; 
+			-- this will match any string that starts with the word 'search' 
+			
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
 
 		Tips:
 			always be careful to put the % characters in the right places!
@@ -837,6 +986,44 @@ LIKE operator
 
 
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+CLASS 4
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+------------------------------------------------------------------------------------
+template: Intro slide template
+template_id: 1 
+------------------------------------------------------------------------------------
+
+CLASS 4 - Intro
+Links to meetup, gh, and wiki
+
+
+------------------------------------------------------------------------------------
+template: Previous Class
+template_id: 2 
+------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
 AGGREGATIONS IN SQL
 	We use the GROUP BY clause in SQL to aggregate data
 
@@ -844,9 +1031,22 @@ AGGREGATIONS IN SQL
 	You can aggregate on fields that have some form of repeating value
 		Hence categorical data, not numerical data
 
+
+
+------------------------------------------------------------------------------------
+template: 1x1 grid with bullet points (left) and image (right)
+template_id: 4
+------------------------------------------------------------------------------------
+
 	Say you have this table...
 		*SHOW TABLE WITH AGGREGAT-ABLE FIELDS
 			START WITH ONE COLUMN ONLY*
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 
 		We can do:
 			SELECT 
@@ -858,46 +1058,104 @@ AGGREGATIONS IN SQL
 				FROM table_name 
 				GROUP BY col_1;
 
-		GROUP BY here "collapses" the rows where it can (where values are repeated)
-		Of course, if you add additional column you'll have to either group by those as well or do some sort of aggregation (like summing the values)
 
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
+GROUP BY "collapses" the rows where it can 
+	where values are repeated
+If you add additional column you'll have to either group by those as well or do some sort of aggregation
+(like summing the values of the non GROUPed BY cols)
+
+
+
+
+------------------------------------------------------------------------------------
+template: 1x1 grid with bullet points (left) and image (right)
+template_id: 4
+------------------------------------------------------------------------------------
 
 	Say you have this other table table...
 		*SHOW TABLE WITH AGGREGAT-ABLE FIELDS
 			START WITH TWO COLUMNS, both categorical*
+
+
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 
 	What if I only want to show the unique combinations for both columns?
 		SELECT col_1, col_2
 			FROM table_name
 			GROUP BY col_1, col_2
 
+
+
+------------------------------------------------------------------------------------
+template: title and bullet points
+template_id: 5
+------------------------------------------------------------------------------------
+
 	LETS COMBINE THIS CONCEPT WITH AGGREGATE FUNCTIONS
 	Examples of aggregations:
 		sum, count, max, min, average
-
 	Usually used on numerical and/or date columns (except count, can be used on any column really)
 
+
+
+
+------------------------------------------------------------------------------------
+template: table_template
+template_id: 14
+------------------------------------------------------------------------------------
+
+	
+- tip: use count(distinct col_name) to count all unique values in column
 		html table:
-			sum : adds up the column
+			sum: adds up the column
 			count: count records in the column (NOT NULL)
-				- tip: use count(distinct col_name) to count all unique values in column
 			max: returns highest value in the column
 			min: returns lowest value in the column
 			average: computes the average of the column
 
-	When called by themselves such as:
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+	When calling agg. functions with no other fields, such as:
 		SELECT average(num_column) 
 			FROM table_name;
-		It will return the average for the whole column...
-		but say you want to return average based on groups found in another column
+		-- this will return the average for the whole column...
+	but say you want to return average based on groups found in another column
+		- wat?
 
-		*show example*
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 
 	That's when you want to combine GROUP BY and aggregate functions.
-	Such as:
+	--Such as:
 		SELECT categorical_col, average(num_column)
 			FROM table_name
 			GROUP BY categorical_col;
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 
 	It can get more complex by computing averages over two GROUPed columns:
 		SELECT categorical_col_one
@@ -905,6 +1163,13 @@ AGGREGATIONS IN SQL
 			,average(num_column)
 			FROM table_name
 		GROUP BY categorical_col_one, categorical_col_two;
+
+
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
 
 	You can also throw in an ORDER BY after and, if you need it, a WHERE clause before
 		SELECT categorical_col_one
@@ -916,6 +1181,12 @@ AGGREGATIONS IN SQL
 		ORDER BY categorical_col_two DESC;
 
 
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
 	...and as a shorthand you can reference columns by their position:
 		SELECT categorical_col_one
 			,categorical_col_two
@@ -924,6 +1195,18 @@ AGGREGATIONS IN SQL
 		GROUP BY 1,2
 		ORDER BY 3 ASC;
 
+
+
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
 
 SUBQUERIES
 	A subquery is a table calculated on the fly.
@@ -935,7 +1218,14 @@ SUBQUERIES
 		filter your data using a where clause on an aggregate sub
 			...wat?
 
-	Examples:
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+
+	Example of subquery used with WHERE ... IN:
 		SELECT id, first_name, last_name
 			FROM table_name
 			WHERE id IN 
@@ -943,6 +1233,12 @@ SUBQUERIES
 					FROM table_name 
 				WHERE department = 'Noisebridge');
 
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+	Example of subquery used with WHERE ... [operator]:
 		SELECT id, first_name, last_name
 			FROM table_name
 			WHERE date_registrered > 
@@ -950,23 +1246,51 @@ SUBQUERIES
 							FROM other_table
 						WHERE other_col = 'Noisebridge')
 
+
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
 	Subs are used also in this context:
 		SELECT col_1, col_2
 			FROM (SELECT col_1, col_2 
 					FROM table_name);
 	This example is really not that useful but it will make sense with JOINs
 
+------------------------------------------------------------------------------------
+template: Title bullet points and code template
+template_id: 8
+------------------------------------------------------------------------------------
+
+	Example with aggregation (sum) after case when in sub:
 		SELECT SUM(col_1_case) as col_1_sum
 			, SUM(col_2_case) as col_2_sum
 				FROM (SELECT CASE WHEN col_1 > 0 THEN 1 ELSE 0 END AS col_1_case
 							,CASE WHEN col_1 > 0 THEN 1 ELSE 0 END AS col_2_case 
 						FROM table_name);
 
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
 		This could be simplified as:
 					SELECT SUM(CASE WHEN col_1 > 0 THEN 1 ELSE 0 END) AS col_1_sum
 							,SUM(CASE WHEN col_1 > 0 THEN 1 ELSE 0 END) AS col_2_sum 
 						FROM table_name;
 
+
+
+--------------------
+template: vertical
+template_id: 9 
+--------------------
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
 
 Joins
 
@@ -979,6 +1303,13 @@ Joins
 	Also, you should ask yourself, what is the table that contains most values in the join column?
 		You probobaly want to start your join from this table
 
+
+
+------------------------------------------------------------------------------------
+template: 2x2 grid with bullet points on left and image on right
+template_id: 7
+------------------------------------------------------------------------------------
+
 	Example:
 		Look at the following two tables:
 			*SHOW TWO TABLES HERE*
@@ -987,16 +1318,40 @@ Joins
 			*Also, the second one doesnt contain all values in its foreign key that the first one contains in its primary key
 				*To better illustrate the concept of starting with the 'fullest' or 'biggest' table in terms of Join*
 
+
+------------------------------------------------------------------------------------
+template: table_template
+template_id: 14
+------------------------------------------------------------------------------------
+
 		primary to foreign -- very frequent
 		primary to primary -- frequent
 		foreign to foreign -- not frequent
 
 
+
+
+------------------------------------------------------------------------------------
+template: 1x1 grid with bullet points (left) and image (right)
+template_id: 4
+------------------------------------------------------------------------------------
+
 	Types of JOINS:
-		INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN)
+		INNER JOIN
+		LEFT JOIN
+		RIGHT JOIN
+		FULL OUTER JOIN
 		*PICTURE WITH VENN DIAGRAMS*
 
-		Important concept to realize: 
+
+
+------------------------------------------------------------------------------------
+template: Double bulleted list
+template_id: 7
+------------------------------------------------------------------------------------
+
+
+		Important concept to understand: 
 			INNER joins will only keep records that appear in both tables
 			LEFT joins will keep all records that appear in the left table (or starting table) and will also join in the records from the right table (the one right after LEFT JOIN words), regardless of wether they are in the strating table or not.
 
@@ -1005,17 +1360,21 @@ Joins
 		I would suggest to always keep it at LEFT joins only or INNER joins only (per subquery)
 
 
+
+------------------------------------------------------------------------------------
+template: Only code template
+template_id: 10
+------------------------------------------------------------------------------------
+
+
 	SQL CODE:
 		SELECT 
 			t1.*
 			,t2.*
 			FROM table_name_1 t1
 		INNER JOIN table_name_2 t2
-			ON t1.id = t2.foreign_id
+			ON t1.id = t2.foreign_id;
+--	Instead of joining full tables, you can join subqueries
+--		Very useful when you have to join in aggreagate values of some kind
 
-	Instead of joining full tables, you can join subqueries
-		Very useful when you have to join in aggreagate values of some kind
-
-	joins with subqueries
-	joins with aggregate subqueries
 

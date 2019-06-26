@@ -1,4 +1,4 @@
 *.db
 *.log
-/old
-/scratch
+old/
+scratch/
