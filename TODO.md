@@ -6,6 +6,7 @@
 	- Change background color between code slides and no-code slides
 	- Make examples consistent (either from fake tables or real tables from the actual chinook.db)
 	- Add final recap slide for each class
+	- Review file with SQL code
 
 
 	### Class 1:
