@@ -116,7 +116,7 @@
 				<section data-background="#002b36">
 					<p>SQL code:</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						-- Shows null value in "ReportsTo" column
 						SELECT * FROM employees
 							LIMIT 1;
@@ -187,7 +187,7 @@
 				<section data-background="#002b36">
 					<p>SQL code:</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 							SELECT column_name_1 as cl_1,
 								column_name_2 as cl_2
 							-- notice the alias "as alias_name"
@@ -205,7 +205,7 @@
 						<li>From our sample DB</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							-- Show aliases for columns and tables
 							SELECT name as file_type
 			 				FROM media_types as md
@@ -215,7 +215,7 @@
 
 						<li>Can also omit the "as" keyword:</li>
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 				 			SELECT name file_type
 				 				FROM media_types md
 				 			LIMIT 10;
@@ -275,7 +275,7 @@
 						<li>Simple ORDER BY one column</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 								SELECT * FROM employees
 									ORDER BY last_name ASC;
 							</code>
@@ -318,7 +318,7 @@
 						<li>Code with ORDER BY number and ORDER BY multiple columns: </li>
 					</ul>	
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						--  Simple one column order by
 							SELECT GenreId, Name 
 							FROM genres
@@ -328,7 +328,7 @@
 						</code>
 					</pre>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						 -- This is a shortcut way of doing it:
 							SELECT GenreId, Name
 								FROM genres
@@ -348,7 +348,7 @@
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 						 -- ORDER BY with multiple columns							 
 							 SELECT Composer, Name, Milliseconds
 							 FROM tracks
@@ -358,7 +358,7 @@
 						</pre>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 						 -- Orders first by artist name and then, within each artist, by track name
 							 SELECT Composer, Name, Milliseconds
 							 FROM tracks
@@ -367,7 +367,7 @@
 						</pre>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 						 -- Orders by longest track in table
 							  SELECT Composer, Name, Milliseconds
 							 FROM tracks
@@ -425,7 +425,7 @@
 						<li>Simple WHERE condition for varchar() column</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id, my_str_column 
 								FROM table_name
 							WHERE my_str_column = 'some_string';
@@ -437,7 +437,7 @@
 						<li>Simple WHERE condition for numeric column</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id, my_num_column
 								FROM table_name
 							WHERE my_num_column = 23;
@@ -458,7 +458,7 @@
 						<li>Simple WHERE condition for numeric column</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id, my_num_column
 								FROM table_name
 							WHERE my_num_column = 23;
@@ -470,7 +470,7 @@
 						<li>Simple WHERE condition with use of NULL values</li>
 							<p>to filter for NULL or NOT NULL values</p>
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id, my_col
 								FROM table_name
 							WHERE my_col IS NULL;
@@ -494,7 +494,7 @@
 							<p>both true at the same time</p>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id
 									,my_num_column
 									,my_str_column
@@ -543,7 +543,7 @@
 						<li>If filtering same numeric column for a range, instead of doing:</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 								WHERE my_num_column >= 2 AND my_num_column < 9
 							</code>
 						</pre>
@@ -603,7 +603,7 @@
 						</ul>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 						--	This is how the SQL would look like
 							SELECT first_name,
 									last_name

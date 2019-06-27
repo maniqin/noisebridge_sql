@@ -10,6 +10,7 @@
 
 	### Class 1:
 		- Revise <h> tags
+		- Change background for ERD diagram image
 
 	### Class 2:
 		- Add image for NULLs in 'customize nulls in GUI' slide

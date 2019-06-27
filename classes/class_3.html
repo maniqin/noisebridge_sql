@@ -86,7 +86,7 @@
 						<li>if called by itself it outputs a number</li>
 						<li>Example: </li>
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 						SELECT random();
 			            -- no FROM because it doesnt really come from a table
 							</code>
@@ -106,7 +106,7 @@
 						<li>Example:</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 				            SELECT col_1,
 				                    col_2
 				                FROM table_name
@@ -116,7 +116,7 @@
 						<li>Throw in a LIMIT too, great to get a random sample:</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 					       SELECT col_1,
 					                    col_2
 					                FROM table_name
@@ -346,7 +346,7 @@
 				<section data-background="#002b36">
 					<p>CASE WHEN code:</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						-- here CASE WHEN is used to create a column that will act as a 'flag'
 						-- i.e. to specify if the value at that row is less or greater than 10
 						SELECT
@@ -373,7 +373,7 @@
 						<li>Case when with multiple conditions</li>
 
 						<pre>
-							<code class="hljs" data-trim data-noescape>
+							<code class="hljs sql" data-trim data-noescape>
 							CASE WHEN my_num_col > 2 AND my_varchar_col LIKE '%search%'
 								THEN 'custom output'
 								ELSE NULL END AS my_col_name
@@ -392,7 +392,7 @@
 				<section data-background="#002b36">
 					<p>case when with multiple WHENs</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 							CASE 
 								WHEN num_col > 2
 									THEN 'output 1'
@@ -415,7 +415,7 @@
 				<section data-background="#002b36">
 					<p>CASE with the same field</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 					--(looks like more of a switch case, for those of you who are familiar)
 						CASE field
 							WHEN condition
@@ -438,7 +438,7 @@
 				<section data-background="#002b36">
 					<p>nested CASE WHEN</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						CASE WHEN field_1 = 'some string'
 							THEN
 								CASE WHEN field_2 > 20 
@@ -463,7 +463,7 @@
 				<section data-background="#002b36">
 					<p>case when using IN keyword to check elements belonging to a list (generated in a subquery)>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 							CASE WHEN track_id IN (SELECT id FROM tracks WHERE track_duration > 20)
 								THEN 'output_1'
 							ELSE NULL END AS in_check
@@ -482,7 +482,7 @@
 				<section data-background="#002b36">
 					<p>CASE WHEN using a subquery to calculate one value</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 						CASE WHEN num_col = (SELECT max(other_num_col) FROM table_name)
 							THEN 'output_1'
 						ELSE NULL END AS subquery_check
@@ -578,7 +578,7 @@
 				<section data-background="#002b36">
 					<p>Example with LIKE</p>
 					<pre>
-						<code class="hljs" data-trim data-noescape>
+						<code class="hljs sql" data-trim data-noescape>
 							SELECT
 								col_1
 								,col_2
