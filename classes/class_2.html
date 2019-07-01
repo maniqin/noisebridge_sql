@@ -7,7 +7,7 @@
 	  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 	/>
 
-	<title>SQL Class - Noisebridge</title>
+	<title>SQL Class #2 - Noisebridge</title>
 
 	<link rel="stylesheet" href="../slide/reveal/css/reset.css">
 	<link rel="stylesheet" href="../slide/reveal/css/reveal.css">
@@ -29,14 +29,13 @@
 			<!-- -------------------------------------------------------------------- -->
 			<section id="intro">
 				<h3>Noisebridge - SQL class</h3>
-				<h3>Intro to SQL - Class #2 </h3>
-					<br>
+				<h5>Class #2</h5>
 					<div class="side-bullet-point">
 						<div>
-							<h4>Useful links: </h4>
+							<h4>Useful links:</h4>
 							<ul>
 								<li><a href="https://www.meetup.com/TBD">Meetup</a></li>
-								<li><a href="https://wiki.noisebridge.net/TBD">NB wiki</a></li>
+								<li><a href="https://wiki.noisebridge.net/TBD">Noisebridge Wiki</a></li>
 								<li><a href="https://www.github.com/maniqin/noisebridge_sql">Github Repo</a></li>
 							</ul>
 						</div>
@@ -83,28 +82,35 @@
 				<section class="double-bulleted" data-background="#002b36">
 					<div>
 						<div>
-							<h4>Let's talk about NULL Values</h4>
+							<h4>NULL Values</h4>
 						</div>
 						<div>
 						<ul>
 							<li>
 								NULL values are special values in a table's records
 							</li>
-								<ul>
-									<li>
-									<a href="https://en.wikipedia.org/wiki/Table_(database)">include pic on the side of null values in various consoles</a></li>
-								</ul>
-
-								<li>
-									A NULL literally means 'no data in this record in this column'
-								</li>
-								<ul>
-									<li>Watch out: very different from a blank string or a string literally spelling 'NULL'</li>
-									<li>Example of nulls next</li>
-								</ul>
-							</ul>
+							<pre>
+								<code class="hljs markdown" data-trim data-noescape>
+									+----+----------+-----+-----------+----------+
+									| ID | NAME     | AGE | ADDRESS   | SALARY   |
+									+----+----------+-----+-----------+----------+
+									|  6 | Komal    |  22 | MP        |          |
+									|  7 | Muffy    |  24 | Indore    |          |
+									+----+----------+-----+-----------+----------+		
+								</code>
+							</pre>
+						</ul>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					<h4>NULL Values</h4>
+						<ul>
+							<li>A NULL literally means 'no data in this record in this column'</li>
+							<li>Watch out: very different from a blank string or a string literally spelling 'NULL'</li>
+							<li>Example of nulls next</li>
+						</ul>
 				</section>
 
 				<!-- -------------------------------------------------------------------- -->
@@ -170,8 +176,8 @@
 				<!-- -------------------------------------------------------------------- -->			
 			<section data-background="#002b36">
 				<h5>Useful tip, use aliases</h5>
-					<p>Aliases can be used as a shortcut to reference columns or tables</p>
 						<ul>
+							<li>Aliases can be used as a shortcut to reference columns or tables</li>
 							<li>will rename column(s) in the output</li>
 							<li>can reference columns/tables in the code with the shortcut</li>
 							<li>will come useful later when using multiple tables</li>
@@ -207,6 +213,7 @@
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 							-- Show aliases for columns and tables
+							-- Example from chinook db
 							SELECT name as file_type
 			 				FROM media_types as md
 				 			LIMIT 10;
@@ -216,6 +223,7 @@
 						<li>Can also omit the "as" keyword:</li>
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
+							-- Example from chinook db
 				 			SELECT name file_type
 				 				FROM media_types md
 				 			LIMIT 10;
@@ -489,45 +497,44 @@
 				<!-- Title: WHERE and AND -->
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
-					<ul>
-						<li>Combined WHERE condition with AND operator</li>
-							<p>both true at the same time</p>
+					<ul>	
+						<li>AND -- both true at the same time</li>
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 							SELECT id
-									,my_num_column
-									,my_str_column
-								FROM table_name
-								WHERE my_num_column > 2
-								AND my_str_column = 'hello';
+								,my_num_column
+								,my_str_column
+							FROM table_name
+							WHERE my_num_column > 2
+							AND my_str_column = 'hello';
 							</code>
 						</pre>
 
-						<li>WHERE used with OR</li>
+						<li>OR -- Either one true</li>
 						
 						<pre>
-							<code>
-								SELECT id
-									,my_num_column
-									,my_str_column
-								FROM table_name
-								WHERE my_num_column > 2
-								OR my_str_column = 'hello';
+							<code class="hljs sql" data-trim data-noescape>
+							SELECT id
+								,my_num_column
+								,my_str_column
+							FROM table_name
+							WHERE my_num_column > 2
+							OR my_str_column = 'hello';
 
 							</code>
 						</pre>
 
 						<li>WHERE used with AND and OR</li>
 						<pre>
-							<code>
+							<code class="hljs sql" data-trim data-noescape>
 								SELECT id
 										,my_num_column
 										,my_str_column
-									FROM table_name
-									WHERE 
-									(my_num_column > 2 AND my_num_column < 6) 
-									OR my_str_column = 'hello';					
+								FROM table_name
+								WHERE 
+								(my_num_column > 2 AND my_num_column < 6) 
+								OR my_str_column = 'hello';					
 							</code>
 						</pre>
 					</ul>
@@ -543,14 +550,14 @@
 						<li>If filtering same numeric column for a range, instead of doing:</li>
 
 						<pre>
-							<code class="hljs sql" data-trim data-noescape>
+							<code data-trim data-noescape>
 								WHERE my_num_column >= 2 AND my_num_column < 9
 							</code>
 						</pre>
 
 						<li>use (bounds are included):</li>
 						<pre>
-							<code>
+							<code data-trim data-noescape>
 								WHERE my_num_column BETWEEN 2 AND 8
 							</code>
 						</pre>
@@ -568,20 +575,14 @@
 						<li>WHERE used with IN statement</li>
 
 						<pre>
-							<code class="hljs markdown" data-trim data-noescape>
-								-- Suppose values in "id" columns are integers 1 through 100
-								-- if you have the specific id's, just plug them in a list and use the IN keyword
-								-- (imagine id's to be emails or unique identifiers for a customer in the db)	
-							</code>
-						</pre>
-
-						<pre>
-							<code>
+							<code class="hljs sql" data-trim data-noescape>
 							SELECT id
 								,my_num_column
 								,my_str_column
-								FROM table_name
-								WHERE id IN (1,2,3,4);
+							FROM table_name
+							-- Suppose values in "id" columns are integers 1 through 100
+							WHERE id IN (1,2,3,4);
+							-- (imagine id's to be emails or unique identifiers for a customer in the db)	
 							</code>
 						</pre>
 					</ul>
@@ -595,21 +596,21 @@
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
 					<ul>
-						<li>WHERE clauses use the IN keyword to filter records to a specified subset</li>
+						<li>IN keyword to filter records to a specified subset</li>
 
 						<ul>For example:
 							<li>you want a list of names and last name, 
-							<li>but only where the first name is in this list: Richard, Ann, Chris.</li>
+							<li>but only where the first name is Richard, Ann, or Chris.</li>
 						</ul>
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 						--	This is how the SQL would look like
-							SELECT first_name,
-									last_name
-								FROM table_name
-							WHERE first_name IN ('Richard', 'Ann', 'Chris');
-						-- Start to think how you would treat cases in which the value is 'richard' and not 'Richard'
+						SELECT first_name,
+							last_name
+						FROM table_name
+						WHERE first_name IN ('Richard', 'Ann', 'Chris');
+						-- How you would treat cases in which the value is 'richard' and not 'Richard'?
 							</code>
 						</pre>
 
@@ -626,10 +627,10 @@
 		<!-- id: 12 -->
 		<!-- -------------------------------------------------------------------- -->
 
-		<div id="footer-left">
+		<footer>
 			Noisebridge SQL Class
 			<img src="../slide/assets/nb_logo.svg" alt="Noisebridge Logo" />
-		</div>
+		</footer>
 
 		</div>
 	</div>

@@ -6,20 +6,24 @@
 	font-size: 0.3em;
 }
 
+:not(pre span) {
+	color: hsl(150, 0%, 75%) !important
+}
+
 #header-right {
 	position: absolute;
 	top: 0%;
 	right: 0%;
 }
 
-#footer-left {
+footer {
 	position: absolute;
 	bottom: 0%;
 	left: -18%;
 	font-size: 0.3em;
 }
 
-#footer-left img {
+footer img {
  	/*margin: 0 10px -5px 0;*/
 	width: 25px;
 	height: 25px;
@@ -86,6 +90,11 @@ ul.space-li > li {
 	padding: 20px 0;
 	font-weight: bold;
 }
+
+div.controls-arrow {
+	color: #CC3333 !important	
+}
+
 
 
 /*
