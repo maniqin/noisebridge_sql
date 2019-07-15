@@ -1,8 +1,14 @@
 # Noisebridge SQL class
 
 ## This is the repo for Noisebridge SQL class
-	- Slides are under /noisebridge_sql/classes/class_*.html
-		(can open them up on a browser)
-	- The SQL code used in the slides is under /noisebridge_sql/code/class_examples.sql
+	- To open up the slides in a browser go to: maniqin.github.io/noisebridge_sql and pick a class from the list
+	- The SQL code can be found here:
+		/noisebridge_sql/code/class_examples.sql
+		/noisebridge_sql/code/examples_chinook_db.sql
+		/noisebridge_sql/code/sqlite_sys_tables.sql
 
-Please note: Class is still under development, time will be announced soon!
+Please note: Class is still under development, slides and code may change
+We will meet Wednesdays 7pm--8:30pm @ Noisebridge (Church room)
+
+Noisebridge Wiki entry: https://www.noisebridge.net/wiki/Category:Events#Wednesdays
+Meetup event (class 1): https://www.meetup.com/noisebridge/events/jxdrdryzkbwb/

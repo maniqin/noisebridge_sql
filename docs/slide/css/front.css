@@ -1,0 +1,43 @@
+
+body {
+  background-color: #002b36;
+}
+h2  {
+  font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
+  color: white;
+}
+div {
+  width: 500px;
+  margin: 100px
+}
+ 
+ol {
+  color: #0066ff;
+  list-style-type: none;
+}
+ 
+ol li {
+  position: relative;
+  font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
+  margin-bottom: 20px;
+
+}
+ 
+li p {
+  font: 12px/1.5 Helvetica, sans-serif;
+  padding-left: 200px;
+  color: #555;
+  font-style: italic;
+}
+ 
+span {
+  position: absolute;
+}
+
+img {
+  /*margin: 0 10px -5px 0;*/
+  width: 70px;
+  height: 70px;
+  fill: ;
+  margin: 0 5px -9px 0;
+
