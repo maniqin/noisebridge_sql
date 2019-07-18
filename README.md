@@ -7,8 +7,8 @@
 		/noisebridge_sql/code/examples_chinook_db.sql
 		/noisebridge_sql/code/sqlite_sys_tables.sql
 
-Please note: Class is still under development, slides and code may change
+Please note: Class is still under development, slides and code may change__
 We will meet Wednesdays 7pm--8:30pm @ Noisebridge (Church room)
 
-Noisebridge Wiki entry: https://www.noisebridge.net/wiki/Category:Events#Wednesdays
+Noisebridge Wiki entry: https://www.noisebridge.net/wiki/Category:Events#Wednesdays__
 Meetup event (class 1): https://www.meetup.com/noisebridge/events/jxdrdryzkbwb/

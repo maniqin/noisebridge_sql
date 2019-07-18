@@ -354,7 +354,3 @@ INNER JOIN table_name_2 t2
 ON t1.id = t2.foreign_id;
 --	Instead of joining full tables, you can join subqueries
 --		Very useful when you have to join in aggreagate values of some kind
-
-
-
-

@@ -36,7 +36,7 @@
 							<ul>
 								<li><a href="https://www.noisebridge.net/wiki/Category:Events">noisebridge wiki events</a></li>
 								<li><a href="https://www.meetup.com/noisebridge/">noisebridge meetup page</a></li>
-								<li><a href="https://www.github.com/maniqin/noisebridge_sql/">SQL github repo</a></li>
+								<li><a href="https://www.github.com/maniqin/noisebridge_sql/">sql github repo</a></li>
 								<li><a href="https://maniqin.github.io/noisebridge_sql/">all slides</a></li>
 							</ul>
 						</div>
@@ -54,7 +54,7 @@
 					<pre>
 						<code class="hljs markdown" data-trim data-noescape>
 
-						## No class to review before today, this is the first one!  
+						## No class to review before today, this is the first one
 						</code>
 					</pre>
 				</section>
@@ -70,20 +70,50 @@
 					<div class="side-bullet-point">
 						<div>
 							<ul>
-								<li>S(trucured) Q(uery) L(anguage)</li>
+								<li>Strucured Query Language</li>
+									<ul>
+										<li style="font-size:50%">SQL (pronounced 'es-que-el' or 'sequel')</li>
+									</ul>
 								<li>We access databases with it</li>
 								<li>Fast / efficient storage & retrieval</li>
 								<li>One of the most used / popular ways to store data</li>
-								<li>Key component to backends of many Web Apps</li>
 							</ul>
 						</div>
 						<div>
-							<img src="../slide/assets/db.png" alt="good image!" width="200" height="200"/>
+							<img src="../slide/assets/db.png" alt="db image" width="200" height="200"/>
 							<br>
 						</div>
 					</div>
 
 				</section>
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+				<!-- What is SQL and why is is used -->
+				<!-- id: 7 -->
+				<!-- -------------------------------------------------------------------- -->
+
+				<section data-background="#002b36">
+					<h3>What is SQL and why is it used?</h3>
+					<div class="side-bullet-point">
+						<div>
+							<ul>
+								<li>Key component to backends of many Web Apps</li>
+								<li>SQL is often abstracted with ORMs (Object-relational mapping)</li>
+									<ul>
+										<li>Nonetheless, still widely used in its raw form for data warehousing, analytics, ML, apps optimization... </li>
+									</ul>
+							</ul>
+						</div>
+						<div>
+							<img src="../slide/assets/db.png" alt="db image" width="200" height="200"/>
+							<br>
+						</div>
+					</div>
+
+				</section>
+
 
 				<!-- -------------------------------------------------------------------- -->
 				<!-- SQL variants -->
@@ -144,17 +174,19 @@
 							</li>
 
 								<ul>
-									<li>Analytical db vs operational db</li>
-									<li>DB on file vs DB on server</li>
+									<li>Concept of analytical db vs operational db</li>
 								</ul>
 								<br>
-
+							<li>
+								DB on file (sqlite) vs DB on server (e.g. PostgreSQL)
+							</li>
+								<br>
 								<li>
 									Understanding why it's called RDBMS (relational database management system)
 								</li>
 								<ul>
-									<li>Can decide what are the relationships between tables before filling them with data</li>
-									<li>Very important step, if not the most important, gonna have repercussions in the future</li>
+									<li>Can decide what are the relationships between tables before inserting the data</li>
+									<li>Very important step, if not the most important, may have repercussions in the future</li>
 								</ul>
 							</ul>
 						</section>
@@ -188,7 +220,7 @@
 								<ul>
 									<li>Storage efficiency</li>
 									<li>Data better organized</li>
-									<li>Encapsulate concepts into tables</li>
+									<li>Encapsulate "concepts" into tables</li>
 								</ul>
 							</ul>
 						</div>
@@ -272,12 +304,12 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h4>Understnading Constrants</h4>
+					<h4>Understanding Constrants</h4>
 					<ul>
 						<li>When creating a table we can set specific constraints to it</li>
-						<li>This means columns we specify will follow set rules (i.e. never being empty)</li>
+						<li>This means columns we specify will follow set rules (e.g. never being empty)</li>
 						<li>Some examples of constraints: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, etc..</li>
-						<li><a href="https://www.w3schools.com/sql/sql_constraints.asp">W3 Schools Ref</a></li>
+						<li><a href="https://www.w3schools.com/sql/sql_constraints.asp">w3 schools ref</a></li>
 					</ul>
 				</section>
 
@@ -321,7 +353,7 @@
 
 		<section data-background="#002b36">
 			<h3>SQL Statements</h3>
-			<h5>(aka SQL code, queries, SQL pulls)</h5>
+			<p style="font-size: 50%">(aka SQL code, queries, SQL pulls [in case of SELECT])</p>
 			<div><u>The way we interact with the DB</u></div>
 			<ul>
 				<li>Creating tables</li>
@@ -362,13 +394,48 @@
 			</section>
 
 
+
+
 		<!-- -------------------------------------------------------------------- -->
 		<!-- double_bulleted_list -->
 		<!-- id: 7 -->
 		<!-- -------------------------------------------------------------------- -->
 
 		<section class="double-bulleted" data-background="#002b36">
-			<h2>To start</h2>
+			<h4>To start - Pt 1</h4>
+				<ul>
+					<li>
+						Make sure you have sqlite installed
+					</li>
+						<ul>
+							<li>Linux</li>
+								<ul>
+									<li>should be already installed, open terminal and type "sqlite3"</li>
+									<li>if it doesn't work, follow <a href="https://www.tutorialspoint.com/sqlite/sqlite_installation">this</a> (second part, "Install SQLite on Linux")</li>
+								</ul>							
+							<li>MacOS</li>
+								<ul>
+									<li>should be already installed, open terminal and type "sqlite3"</li>
+									<li>if it doesn't work, install with brew (most likely not required)</li>
+								</ul>
+							<li>Windows</li>
+								<ul>
+									<li>Follow <a href="http://www.sqlitetutorial.net/download-install-sqlite/">this</a> (first part, "Install SQLite")</li>
+								</ul>
+
+						</ul>
+
+					</ul>
+				</section>
+
+
+		<!-- -------------------------------------------------------------------- -->
+		<!-- double_bulleted_list -->
+		<!-- id: 7 -->
+		<!-- -------------------------------------------------------------------- -->
+
+		<section class="double-bulleted" data-background="#002b36">
+			<h4>To start - Pt 2</h4>
 			<!-- <ul style="font-size: 0.6em;"> -->
 				<ul>
 					<li>
@@ -376,13 +443,8 @@
 					</li>
 						<ul>
 							<li>Let's start with a simple sqlite file, <a href="http://www.sqlitetutorial.net/sqlite-sample-database/">here</a> (SQLite)</li>
-							<li>Or <a href="http://www.postgresqltutorial.com/postgresql-sample-database/">here's a sample Postgres dump</a> or for the music nerds, <a href="https://musicbrainz.org/statistics">this</a> (Both PostgreSQL)</li>
-								<ul>
-									<li>Need to install postgres for this one, if interested talk to me after class</li>
-								</ul>
 						</ul>
 						<br>
-
 						<li>
 							Download SQL client gui
 						</li>
@@ -461,10 +523,10 @@
 				<pre>
 					<code class="hljs sql" data-trim data-noescape>
 			--This is a comment
-				SELECT 
-					column_1,
-					column_2 
-				FROM table_name -- this is an inline comment
+			SELECT 
+				column_1,
+				column_2 
+			FROM table_name -- this is an inline comment
 					
 				/*
 				You will need multi-line comment
@@ -478,6 +540,35 @@
 			</section>
 
 		</section>
+
+
+	
+<style type="text/css">
+#finSlide h4, #finSlide p { text-align: left; }
+#finSlide img {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 20vh;
+	height: auto;
+}
+</style>
+		<section id="finSlide">
+			<img src="../slide/assets/nb_logo.svg">
+			<h4>Noisebridge is awesome!</h4>
+			<p>How can I help?</p>
+			<ul>
+				<li>NB is a non profit and is ran by us, the people in the space</li>
+				<li>This means that we rely on donations</li>
+				<li>If you'd like to donate to NB, please visit donate.noisebridge.net</li>
+					<ul>
+						<li style="font-size: 50%"> (down at the moment, only PayPal)</li>
+					</ul>
+				<li>or just use one of our cash donation boxes around the space :)</li>
+			</ul>
+		</section>
+
+
 
 
 		<!-- -------------------------------------------------------------------- -->

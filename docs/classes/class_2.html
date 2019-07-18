@@ -36,7 +36,7 @@
 							<ul>
 								<li><a href="https://www.noisebridge.net/wiki/Category:Events">noisebridge wiki events</a></li>
 								<li><a href="https://www.meetup.com/noisebridge/">noisebridge meetup page</a></li>
-								<li><a href="https://www.github.com/maniqin/noisebridge_sql/">SQL github repo</a></li>
+								<li><a href="https://www.github.com/maniqin/noisebridge_sql/">sql github repo</a></li>
 								<li><a href="https://maniqin.github.io/noisebridge_sql/">all slides</a></li>
 							</ul>
 						</div>
@@ -125,11 +125,13 @@
 					<pre>
 						<code class="hljs sql" data-trim data-noescape>
 						-- Shows null value in "ReportsTo" column
-						SELECT * FROM employees
-							LIMIT 1;
-
-						-- Question to ask yourself:
-						-- 	Should this value be null? 
+						SELECT * 
+						FROM employees
+						LIMIT 1;
+						/*
+						Question to ask yourself:
+						Should this value be null? 
+						*/
 						</code>
 
 					</pre>
@@ -153,7 +155,7 @@
 							</ul>
 						</div>
 						<div>
-							<img src="#" alt="good image!">
+							<img src="../slide/assets/null_val_sqiltegui.png" alt="NULL value">
 						</div>
 
 					</div>
@@ -199,8 +201,8 @@
 								column_name_2 as cl_2
 							-- notice the alias "as alias_name"
 							-- for both columns and table name
-								FROM table_name as tb
-								LIMIT 10;
+							FROM table_name as tb
+							LIMIT 10;
 						</code>
 					</pre>
 				</section>
@@ -224,10 +226,10 @@
 						<li>Can also omit the "as" keyword:</li>
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-							-- Example from chinook db
-				 			SELECT name file_type
-				 				FROM media_types md
-				 			LIMIT 10;
+						-- Example from chinook db
+			 		SELECT name file_type
+			 		FROM media_types md
+			 		LIMIT 10;
 							</code>
 						</pre>
 					</ul>
@@ -268,7 +270,7 @@
 							</ul>
 						</div>
 						<div>
-							<img src="#" alt="good image!">
+							<img src="../slide/assets/order_by_two.png" alt="order by one" style="width:50%; height:50%">
 						</div>
 
 					</div>
@@ -285,8 +287,9 @@
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-								SELECT * FROM employees
-									ORDER BY last_name ASC;
+								SELECT * 
+								FROM employees
+								ORDER BY last_name ASC;
 							</code>
 						</pre>
 					</ul>
@@ -309,7 +312,7 @@
 							</ul>
 						</div>
 						<div>
-							<img src="#" alt="order by two columns">
+							<img src="../slide/assets/order_by_two.png" alt="order by two columns" style="width:50%; height:50%">
 						</div>
 
 					</div>
@@ -324,13 +327,13 @@
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
 					<ul>
-						<li>Code with ORDER BY number and ORDER BY multiple columns: </li>
+						<li>Code with ORDER BY number</li>
 					</ul>	
 					<pre>
 						<code class="hljs sql" data-trim data-noescape>
-						--  Simple one column order by
+							--  Simple one column order by
 							SELECT GenreId, Name 
-							FROM genres
+								FROM genres
 							ORDER BY Name ASC;
 							-- You can also use DESC, ORDER BY defaults to ASC
 							
@@ -341,7 +344,7 @@
 						 -- This is a shortcut way of doing it:
 							SELECT GenreId, Name
 								FROM genres
-							 ORDER BY 2 ASC
+							ORDER BY 2 ASC
 							-- 2 here means the second column
 							--  (in the order written after the SELECT)
 							 ;
@@ -356,39 +359,54 @@
 				<!-- Title: ORDER BY 2 columns more code-->
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
+					<ul>
+						<li>ORDER BY multiple columns</li>
+					</ul>
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 						 -- ORDER BY with multiple columns							 
-							 SELECT Composer, Name, Milliseconds
-							 FROM tracks
-							 ORDER BY Composer DESC, Name;
+							SELECT Composer, Name, Milliseconds
+								FROM tracks
+							ORDER BY Composer DESC, Name;
 
 							</code>
 						</pre>
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-						 -- Orders first by artist name and then, within each artist, by track name
-							 SELECT Composer, Name, Milliseconds
-							 FROM tracks
-							 ORDER BY 1 DESC, 2;
+						 	-- Orders first by artist name and then, within each artist, by track name
+							SELECT Composer, Name, Milliseconds
+								FROM tracks
+							ORDER BY 1 DESC, 2;
 							</code>
 						</pre>
+				</section>
 
+
+
+
+				<section data-background="#002b36">
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 						 -- Orders by longest track in table
-							  SELECT Composer, Name, Milliseconds
-							 FROM tracks
-							 ORDER BY 3 Desc;
-							 -- Careful if you add a column in between other columns
-							 -- "3" is not gonna be the referencing the same column
-							 -- if using the ORDER BY number method make sure to add additional columns to the end 
+							SELECT Composer, Name, Milliseconds
+								FROM tracks
+							ORDER BY 3 Desc;
+
+							/*
+							Careful if you add a column in between other columns
+							"3" is not gonna be the referencing the same column
+							if using the ORDER BY number method make sure to add additional columns to the end 
+							*/ 
 
 							</code>
 						</pre>
 				</section>
 		</section>
+
+
+
+
 
 		<!-- -------------------------------------------------------------------- 
 		vertical stack template 
@@ -477,7 +495,7 @@
 						</pre>
 
 						<li>Simple WHERE condition with use of NULL values</li>
-							<p>to filter for NULL or NOT NULL values</p>
+							<p style="font-size:50%">(to filter for NULL or NOT NULL values)</p>
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 							SELECT id, my_col
@@ -503,7 +521,8 @@
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-							SELECT id
+							SELECT 
+								id
 								,my_num_column
 								,my_str_column
 							FROM table_name
@@ -516,29 +535,32 @@
 						
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-							SELECT id
+							SELECT 
+								id
 								,my_num_column
 								,my_str_column
 							FROM table_name
 							WHERE my_num_column > 2
 							OR my_str_column = 'hello';
-
 							</code>
 						</pre>
+					</ul>
+				</section>
 
-						<li>WHERE used with AND and OR</li>
+				<section>
+					<li>WHERE used with AND and OR</li>
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-								SELECT id
-										,my_num_column
-										,my_str_column
+								SELECT 
+									id
+									,my_num_column
+									,my_str_column
 								FROM table_name
 								WHERE 
 								(my_num_column > 2 AND my_num_column < 6) 
 								OR my_str_column = 'hello';					
 							</code>
 						</pre>
-					</ul>
 				</section>
 
 				<!-- -------------------------------------------------------------------- -->
@@ -577,13 +599,15 @@
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-							SELECT id
+							SELECT 
+								id
 								,my_num_column
 								,my_str_column
 							FROM table_name
 							-- Suppose values in "id" columns are integers 1 through 100
 							WHERE id IN (1,2,3,4);
-							-- (imagine id's to be emails or unique identifiers for a customer in the db)	
+							/* (imagine id's to be emails or 
+							 unique identifiers for a customer in the db)*/
 							</code>
 						</pre>
 					</ul>
@@ -606,12 +630,14 @@
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
-						--	This is how the SQL would look like
-						SELECT first_name,
+						-- This is how the SQL would look like
+						SELECT 
+							first_name,
 							last_name
 						FROM table_name
 						WHERE first_name IN ('Richard', 'Ann', 'Chris');
-						-- How you would treat cases in which the value is 'richard' and not 'Richard'?
+						-- How you would treat cases in which the 
+						-- value is 'richard' and not 'Richard'?
 							</code>
 						</pre>
 
@@ -621,6 +647,30 @@
 		</section>
 
 
+<style type="text/css">
+#finSlide h4, #finSlide p { text-align: left; }
+#finSlide img {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 20vh;
+	height: auto;
+}
+</style>
+		<section id="finSlide">
+			<img src="../slide/assets/nb_logo.svg">
+			<h4>Noisebridge is awesome!</h4>
+			<p>How can I help?</p>
+			<ul>
+				<li>NB is a non profit and is ran by us, the people in the space</li>
+				<li>This means that we rely on donations</li>
+				<li>If you'd like to donate to NB, please visit donate.noisebridge.net</li>
+					<ul>
+						<li style="font-size: 50%"> (down at the moment, only PayPal)</li>
+					</ul>
+				<li>or just use one of our cash donation boxes around the space :)</li>
+			</ul>
+		</section>
 
 
 		<!-- -------------------------------------------------------------------- -->
