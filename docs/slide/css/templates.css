@@ -95,6 +95,14 @@ div.controls-arrow {
 	color: #CC3333 !important	
 }
 
+#finSlide h4, #finSlide p { text-align: left; }
+
+#finSlide img {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 20vh;
+	height: auto;
 
 
 /*
