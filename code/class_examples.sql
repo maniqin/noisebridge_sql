@@ -23,7 +23,7 @@ SELECT
 	FROM table_name -- this is an inline comment
 /*
 You will need multi-line comment
-At some 
+At some point
 Believe me
 */
 LIMIT 100;

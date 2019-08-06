@@ -39,7 +39,7 @@ FROM tracks WHERE AlbumId = 163;
 
 SELECT * 
 FROM albums
-WHERE AlbumId= 163;
+WHERE AlbumId = 163;
 
 SELECT Composer, Name
 FROM tracks
@@ -55,12 +55,12 @@ WHERE lower(Composer) = 'nirvana';
 
 SELECT Composer, Name
 FROM tracks
-WHERE lower(Composer) in ('nirvana', 'kurt cobain');
+WHERE lower(Composer) IN ('nirvana', 'kurt cobain');
 
 
 SELECT Composer, lower(Composer), Name, *
 FROM tracks
-WHERE lower(Composer) in ('nirvana', 'kurt cobain')
+WHERE lower(Composer) IN ('nirvana', 'kurt cobain')
 AND AlbumId = 164;
 
 SELECT Composer, lower(Composer),  Name, *
@@ -267,7 +267,7 @@ SELECT
 	HAVING albums_all > 1;
 
 
--- What is this album and who is it by?
+-- What is this album (271) and who is it by?
 SELECT 
 	art.Name as artist_name,
 	alb.Title as album_title
@@ -303,9 +303,6 @@ INNER JOIN
 		) dupe_albs
 	
 	ON alb.AlbumId = dupe_albs.AlbumId;
-
-
-
 
 
 
@@ -390,23 +387,102 @@ INNER JOIN Albums al
 ON tr.AlbumId = al.AlbumId
 INNER JOIN Artists ar
 ON ar.ArtistId = al.ArtistId
-GROUP BY 1 ORDER BY 3 DESC
+GROUP BY 1 
+ORDER BY 3 DESC
 
--- the invoices for all tracks costing more than 0.99 (>) dollars
 
+-- list of tracks over 0.99 dollar that got sold (appear in an invoice line)
+SELECT
+iit.TrackId, 
+t.Name,
+t.Composer,*
+FROM invoice_items iit
+INNER JOIN tracks t
+ON t.TrackId = iit.TrackId
+WHERE iit.UnitPrice > 0.99
+
+
+SELECT
+iit.TrackId, 
+t.Name,
+t.Composer,*
+FROM invoice_items iit
+INNER JOIN tracks t
+ON (t.TrackId = iit.TrackId
+		AND iit.UnitPrice > 0.99)
+	
+SELECT
+iit.*
+FROM invoice_items iit
+WHERE iit.TrackId IN (SELECT TrackId FROM tracks WHERE UnitPrice  > 0.99)
 
 -- First name, last name and address of emplyee who sold most acdc songs
 
+WITH 
+acdc_tracks AS
+	(SELECT TrackId
+		FROM tracks
+		WHERE AlbumId IN 
+				(SELECT AlbumId
+					FROM albums a
+					INNER JOIN artists art
+						ON a.ArtistId = art.ArtistId
+					WHERE art.Name = 'AC/DC')
+		)
+,
+acdc_invoices AS
+		(SELECT e.FirstName,
+					e.LastName,
+					iit.InvoiceLineId,
+					inv.InvoiceId,
+					iit.UnitPrice
+			FROM invoice_items iit
+			INNER JOIN invoices inv
+				ON iit.InvoiceId = inv.InvoiceId
+			INNER JOIN customers c
+				ON c.CustomerId = inv.CustomerId
+			INNER JOIN employees e
+				ON e.EmployeeId = c.SupportRepId
+			WHERE iit.TrackId IN (SELECT TrackId FROM acdc_tracks)
+			)
+			
+SELECT FirstName || ' ' ||  LastName as employee_full_name
+			,count(InvoiceLineId) as acdc_tracks
+			,count(distinct InvoiceId) as acdc_orders
+			,sum(UnitPrice) as acdc_revenue
 
+FROM acdc_invoices
+GROUP BY 1
+ORDER BY 4 DESC
 
 
 -- Countries with most songs sold (via invoices, BillingCountry)
 
 
+SELECT 
+	inv.BillingCountry,
+	COUNT(TrackId),
+	COUNT(distinct TrackId)
+					
+	FROM invoice_items iit
+	INNER JOIN invoices inv
+		ON iit.InvoiceId = inv.InvoiceId
+	GROUP BY 1
 
 
 
+-- What genres are appearing the most in our db? (by track)
 
+SELECT g.Name as genre
+		,count(t.TrackId) as tracks
+FROM tracks t
+INNER JOIN genres g
+	ON t.GenreId = g.GenreId
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+-- What genres are the most popular (based on how many times people bought songs)
 
 
 
