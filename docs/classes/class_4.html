@@ -255,20 +255,20 @@
 				<!-- -------------------------------------------------------------------- -->
 				<section data-background="#002b36">
 					<ul>
-						<li>When calling agg. functions with no other fields, such as:</li>
+						<li>aggregate function with no other fields, such as:</li>
 
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 						SELECT average(num_column) 
 							FROM table_name;
-						-- this will return the average for the whole column...
+						-- this will return the average for the whole column
 							</code>
 						</pre>
 
-						<li>but say you want to return average based on groups found in another column</li>
+						<li>say you want to return average based on groups found in another column</li>
 						<pre>
 							<code class="hljs markdown" data-trim data-noescape>
-								## wat?
+								## For example you want the average song price per artist
 							</code>
 						</pre>
 					</ul>
@@ -524,29 +524,35 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5>Joins</h5>
-					<div class="side-bullet-point">
+					<h5>joins</h5>
+					<div>
 						<div>
 							<ul>
 								<li>SQL uses JOINs to relate two or more tables</li>
 								<li>This is where the concept of primary and foreign key is important</li>
 								<li>You can join two tables by identifying the two join columns</li>
-								<br>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+
+				<section data-background="#002b36">
+					<h5>joins</h5>
+					<div>
+						<div>
+							<ul>
 								<li>When you need columns from different tables you need to JOIN them together</li>
 								<li>In order to join them, you need to know the shared columns</li>
 								<li>Also, you should ask yourself, what is the table that contains most values in the join column?</li>
 								<ul>
 									<li>You probobaly want to start your join from this table</li>
-								</ul>
-
-							</ul>
+								</ul> 
 						</div>
-						<div>
-							<img src="#" alt="good image!">
-						</div>
-
 					</div>
 				</section>
+
 
 				<!-- -------------------------------------------------------------------- -->
 				<!-- double_bullet_list -->
@@ -555,7 +561,6 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5></h5>
 					<div class="side-bullet-point">
 						<p></p>
 						<div>
@@ -570,7 +575,7 @@
 							</ul>
 						</div>
 						<div>
-							<img src="#" alt="good image!">
+							<img src="../slide/assets/pk_fk_tables.png" alt="Primary Key and Foreign Key">
 						</div>
 
 					</div>
@@ -625,7 +630,7 @@
 							</ul>
 						</div>
 						<div>
-							<img src="#" alt="good image!">
+							<img src="../slide/assets/sql_joins_venn.png" alt="SQL joins venn diagram">
 						</div>
 
 					</div>
@@ -638,9 +643,7 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5></h5>
 					<div class="side-bullet-point">
-						<p></p>
 						<div>
 							<ul>
 								<li>Important concept to understand: </li>
@@ -648,7 +651,19 @@
 										<li>INNER joins will only keep records that appear in both tables</li>
 										<li>LEFT joins will keep all records that appear in the left table (or starting table) and will also join in the records from the right table (the one right after LEFT JOIN words), regardless of wether they are in the strating table or not.</li>
 									</ul>
-								
+						</div>
+					<div>
+							<img src="#" alt="good image!">
+					</div>
+
+					</div>
+				</section>	
+
+
+				<section data-background="#002b36">
+					<div class="side-bullet-point">
+						<div>
+							<ul>
 								<li>Do yourself a favor and do not mix left and right joins</li>
 									<ul>
 										<li>It can get confusing pretty soon :-)</li>
@@ -657,11 +672,8 @@
 								
 							</ul>
 						</div>
-						<div>
+					<div>
 							<img src="#" alt="good image!">
-						</div>
-
-					</div>
 				</section>	
 
 				<!-- -------------------------------------------------------------------- -->
@@ -698,8 +710,7 @@
 				<li>This means that we rely on donations</li>
 				<li>If you'd like to donate to NB:</li>
 					<ul>
-						<li>please visit <a href="donate.noisebridge.net">donate.noisebridge.net</a></li>
-						<li style="font-size: 50%"> (donate is down for maintenance at the moment, will redirect to the <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=treasurer%40noisebridge%2enet&lc=US&item_name=Noisebridge%20Donation&currency_code=USD">PayPal donation page</a>)</li>
+						<li>please visit <a href="https://donate.noisebridge.net/">donate.noisebridge.net</a></li>
 						<li style="font-size: 50%">Alternatively, support us on <a href="https://www.patreon.com/noisebridge">Patreon</a></li>
 						<li style="font-size: 50%">or just use one of our cash donation boxes around the space, there is one by the entrance :)</li>
 					</ul>
