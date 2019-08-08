@@ -643,26 +643,18 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<div class="side-bullet-point">
+					<h5>Important concepts to understand:</h5>
 						<div>
 							<ul>
-								<li>Important concept to understand: </li>
-									<ul>
-										<li>INNER joins will only keep records that appear in both tables</li>
-										<li>LEFT joins will keep all records that appear in the left table (or starting table) and will also join in the records from the right table (the one right after LEFT JOIN words), regardless of wether they are in the strating table or not.</li>
-									</ul>
+								<li>INNER joins will only keep records that appear in both tables</li>
+								<li>LEFT joins will keep all records that appear in the left table (or starting table) and will also join in the records from the right table (the one right after LEFT JOIN words), regardless of wether they are in the strating table or not.</li>
+							</ul>
 						</div>
-					<div>
-							<img src="#" alt="good image!">
-					</div>
-
-					</div>
 				</section>	
 
 
 				<section data-background="#002b36">
-					<div class="side-bullet-point">
-						<div>
+					<div>
 							<ul>
 								<li>Do yourself a favor and do not mix left and right joins</li>
 									<ul>
@@ -672,8 +664,6 @@
 								
 							</ul>
 						</div>
-					<div>
-							<img src="#" alt="good image!">
 				</section>	
 
 				<!-- -------------------------------------------------------------------- -->
@@ -692,12 +682,29 @@
 							FROM table_name_1 t1
 						INNER JOIN table_name_2 t2
 							ON t1.id = t2.foreign_id;
-				--	Instead of joining full tables, you can join subqueries
-				--		Very useful when you have to join in aggreagate values of some kind
+						--	Instead of joining full tables, you can join subqueries
+						--		Very useful when you have to join in aggreagate values of some kind
 						</code>
 
 					</pre>
 				</section>
+
+				<section data-background="#002b36">
+					<p>Left Join</p>
+					<pre>
+						<code class="hljs sql" data-trim data-noescape>
+						SELECT 
+							t1.*
+							,t2.*
+							FROM table_name_1 t1
+						LEFT JOIN table_name_2 t2
+							ON t1.id = t2.foreign_id;
+						</code>
+
+					</pre>
+				</section>
+
+
 
 		</section>
 
