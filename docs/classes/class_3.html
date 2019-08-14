@@ -103,8 +103,6 @@
 				<section data-background="#002b36">
 					<ul>
 						<li>very useful to use in comination with ORDER BY</li>
-						<li>Example:</li>
-
 						<pre>
 							<code class="hljs sql" data-trim data-noescape>
 				            SELECT col_1,
@@ -189,9 +187,7 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5></h5>
-					<div class="side-bullet-point">
-						<p></p>
+					<div>
 						<div>
 							<ul>
 								<li>Can use comparison operators in where clauses</li>
@@ -211,9 +207,6 @@
 									</ul>
 								
 							</ul>
-						</div>
-						<div>
-							<img src="#" alt="good image!">
 						</div>
 
 					</div>
@@ -235,9 +228,7 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5></h5>
-					<div class="side-bullet-point">
-						<p></p>
+					<div>
 						<div>
 							<ul>
 								<li>SQL uses number operators that are very familiar</li>
@@ -265,10 +256,6 @@
 									</ul>
 							</ul>
 						</div>
-						<div>
-							<img src="#" alt="good image!">
-						</div>
-
 					</div>
 				</section>
 
@@ -312,9 +299,9 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<h5>How to build a CASE statement in SQL</h5>
-					<div class="side-bullet-point">
-						<div>
+					<h5>How to build a CASE statement</h5>
+					<div>
+						<div style="font-size: 80%">
 							<ul>
 								<li>Condition to evaluate goes after CASE keyword</li>
 									<ul>
@@ -461,7 +448,7 @@
 				<!-- -------------------------------------------------------------------- -->
 
 				<section data-background="#002b36">
-					<p>case when using IN keyword to check elements belonging to a list (generated in a subquery)>
+					<p>case when using IN keyword to check elements belonging to a list</p>
 					<pre>
 						<code class="hljs sql" data-trim data-noescape>
 							CASE WHEN track_id IN (SELECT id FROM tracks WHERE track_duration > 20)
@@ -498,7 +485,7 @@
 			<!-- -------------------------------------------------------------------- -->
 			<section class="table">
 				<h2>String Functions</h2>
-				<table>
+				<table style="font-size: 50%">
 					<thead>
 						<tr>
 							<th>function</th>
@@ -544,7 +531,7 @@
 
 				<section data-background="#002b36">
 					<h5>LIKE operator</h5>
-					<div class="side-bullet-point">
+					<div style="font-size: 50%">
 						<p>You may want to use the LIKE operator to match substrings</p>
 						<div>
 							<ul>
@@ -602,10 +589,14 @@
 					<ul>
 						<li>always be careful to put the % characters in the right places!</li>
 						<li>can do insensitive case search with:</li>
-							<ul>
-								<li>lower(my_col) like '%substring%'</li>
-								<li>my_col ilike '%substring%' -- (in PostgreSQL)</li>
-							</ul>
+
+						<pre>
+							<code class="hljs sql" data-trim data-noescape>
+								WHERE LOWER(my_col) LIKE '%substring%'
+								my_col ILIKE '%substring%' -- (in PostgreSQL)
+							</code>
+						</pre>
+
 					</ul>
 				</section>
 
