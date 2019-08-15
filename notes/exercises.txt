@@ -1,0 +1,31 @@
+
+------------------------------------------------------------------------------------------
+-- Demonstration of NULL values vs Blank strings:
+-- Insert a test row into the tracks table
+-- Careful, you wouldn't normally do this on a production database!
+-- Get the latest two tracks 
+-- (the one we just inserted and the one right before, which was there already)
+-- No rows retrieved!
+-- One row retrived! (The one we inserted)
+-- Remove the test row from the table...
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+-- Check that albums are only of one media type (they're not)
+-- FIND IT:
+-- or better 
+-- What is this album (271) and who is it by?
+
+-- Ongoing query that will find new albums with multiple media types 
+
+-- Most expensive albums
+-- Most expensive albums with artist name
+-- artist name of the song 'x'
+-- the playlists track 61 appears in
+-- the customer names who rented track 20 (id)
+-- the most rented (bought) artists 
+-- list of tracks over 0.99 dollar that got sold (appear in an invoice line)
+-- First name, last name and address of emplyee who sold most acdc songs
+-- Countries with most songs sold (via invoices, BillingCountry)
+-- What genres are appearing the most in our db? (by track)
+-- What genres are the most popular (based on how many times people bought songs)
